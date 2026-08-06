@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revistas | Puesto de Revistas &amp; Bazar</title>
+
+    <style>
+        :root { --fondo: #FFF7ED; --azul: #123B5D; --azul-vivo: #1677B8; --naranja: #F05A28; --dorado: #F6B73C; --texto: #1F2937; --crema: #FFFDF9; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--fondo); color: var(--texto); font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+        .main-bar { position: relative; padding: 16px 24px 18px; background: linear-gradient(120deg, #123B5D, #19577F); color: var(--crema); border-bottom: 3px solid var(--dorado); box-shadow: 0 4px 16px rgba(18, 59, 93, .18); }
+        .gemini-credit { margin: 0 130px 15px; text-align: center; }
+        .gemini-credit .line-1 { display: block; color: rgba(255,253,249,.92); font-size: .98rem; font-weight: 500; }
+        .gemini-credit .line-2 { display: inline-block; margin-top: 2px; color: #D9F1FF; font-size: 1.04rem; font-weight: 650; text-decoration: none; }
+        .gemini-credit .line-2:hover { color: #FFFFFF; text-decoration: underline; }
+        .section-tag { position: absolute; top: 16px; right: 24px; padding: 6px 12px; border: 1px solid rgba(255,255,255,.42); border-radius: 999px; background: rgba(255,255,255,.10); color: rgba(255,253,249,.94); font-size: .82rem; font-weight: 600; letter-spacing: .035em; backdrop-filter: blur(7px); }
+        .desktop-nav { display: flex; align-items: center; justify-content: center; gap: 7px 12px; flex-wrap: wrap; }
+        .nav-group { position: relative; }
+        .nav-item, .brand-name { display: inline-block; padding: 8px 9px; border-radius: 9px; color: rgba(255,253,249,.96); font-size: 1rem; font-weight: 550; text-decoration: none; transition: color .18s ease, background .18s ease, transform .18s ease; }
+        .brand-name { font-size: 1.16rem; font-weight: 670; white-space: nowrap; }
+        .nav-item:hover, .brand-name:hover, .nav-group:hover > .nav-item { background: rgba(255,255,255,.12); color: #FFFFFF; transform: translateY(-1px); }
+        .dropdown-menu { display: none; position: absolute; z-index: 30; top: calc(100% + 8px); left: 0; min-width: 218px; padding: 7px; border: 1px solid rgba(230, 244, 250, .28); border-radius: 12px; background: rgba(18, 42, 57, .82); box-shadow: 0 14px 26px rgba(18, 59, 93, .18); backdrop-filter: blur(13px); }
+        .nav-group:hover .dropdown-menu, .nav-group:focus-within .dropdown-menu { display: block; animation: menu-in .18s ease-out; }
+        @keyframes menu-in { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown-menu a { display: block; padding: 8px 10px; border-radius: 8px; color: rgba(245, 250, 252, .92); font-size: .91rem; font-weight: 400; line-height: 1.25; letter-spacing: .01em; text-decoration: none; transition: color .18s ease, background .18s ease; white-space: nowrap; }
+        .dropdown-menu a:hover { background: rgba(255,255,255,.10); color: #7DD3FC; }
+        .mobile-header, .mobile-menu { display: none; }
+        .hero { padding: 25px 20px; border-bottom: 1px solid #F2D8A3; background: linear-gradient(110deg, #FFF1DB, #FFF9F0); text-align: center; }
+        .hero h2 { margin: 0 0 6px; color: var(--azul); font-size: 1.35rem; font-weight: 650; }
+        .hero p { margin: 0; color: #536474; font-size: 1.04rem; font-weight: 400; }
+        .mascot-feature { display: grid; grid-template-columns: minmax(210px, 310px) minmax(0, 1fr) minmax(210px, 310px); align-items: center; gap: 16px; width: min(1180px, calc(100% - 32px)); margin: 28px auto; padding: 8px; border: 1px solid rgba(18,59,93,.10); border-radius: 20px; background: rgba(255,253,249,.68); box-shadow: 0 10px 28px rgba(18,59,93,.07); }
+        .mascot-feature img { width: 100%; height: 250px; object-fit: cover; border-radius: 14px; display: block; }
+        .mascot-copy { padding: 12px 18px; }
+        .mascot-kicker { display: inline-block; margin-bottom: 7px; color: var(--naranja); font-size: .87rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+        .mascot-copy h1 { margin: 0 0 8px; color: var(--azul); font-size: clamp(1.32rem, 3vw, 2rem); font-weight: 660; }
+        .mascot-copy p { max-width: 620px; margin: 0; color: #526273; font-size: 1.05rem; font-weight: 400; line-height: 1.55; }
+        .hero-carousel-container { position: relative; width: min(1160px, calc(100% - 32px)); height: min(57vw, 540px); min-height: 330px; margin: 28px auto 46px; overflow: hidden; border: 5px solid rgba(255,253,249,.94); border-radius: 20px; background: #D9E7EC; box-shadow: 0 14px 32px rgba(18,59,93,.16); }
+        .hero-carousel-slide { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 950ms ease-in-out; }
+        .hero-carousel-slide.active { opacity: 1; }
+        .hero-carousel-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .carousel-copy { position: absolute; bottom: clamp(15px, 3.2vw, 34px); left: clamp(15px, 3.2vw, 34px); max-width: min(520px, calc(100% - 30px)); margin: 0; padding: clamp(13px, 2vw, 19px) clamp(15px, 2.5vw, 24px); border: 1px solid rgba(255,255,255,.72); border-radius: 15px; background: rgba(255, 253, 249, .56); box-shadow: 0 8px 22px rgba(18,59,93,.10); color: #173B58; font-size: clamp(1.1rem, 2vw, 1.48rem); font-weight: 590; line-height: 1.38; letter-spacing: .003em; text-align: left; text-shadow: 0 1px 0 rgba(255,255,255,.46); backdrop-filter: blur(4px); animation: copy-in .85s ease-out both; }
+        @keyframes copy-in { from { opacity: 0; transform: translateY(11px); } to { opacity: 1; transform: translateY(0); } }
+        .site-search { display: flex; align-items: center; gap: 9px; width: min(760px, calc(100% - 32px)); margin: 18px auto 8px; padding: 8px; border: 1px solid rgba(18,59,93,.12); border-radius: 15px; background: rgba(255,253,249,.72); box-shadow: 0 8px 22px rgba(18,59,93,.06); }
+        .site-search input { flex: 1; min-width: 0; padding: 12px 15px; border: 1px solid rgba(18,59,93,.20); border-radius: 10px; outline: none; background: rgba(255,255,255,.78); color: var(--texto); font: inherit; font-size: 1rem; }
+        .site-search input::placeholder { color: #758390; }
+        .site-search input:focus { border-color: var(--azul-vivo); box-shadow: 0 0 0 3px rgba(22,119,184,.12); }
+        .site-search button { padding: 12px 19px; border: 0; border-radius: 10px; background: var(--naranja); color: #FFFDF9; font: inherit; font-weight: 600; cursor: pointer; }
+        .site-search button:hover { background: #D94A1E; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .page-content { max-width: 900px; margin: 0 auto; padding: 0 20px 46px; text-align: center; }
+        .page-content p { margin: 0; color: #536474; font-size: 1.08rem; line-height: 1.55; }
+        @media (max-width: 900px) {
+            .desktop-nav { display: none; }
+            .mobile-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+            .menu-toggle-btn { padding: 8px 13px; border: 1px solid rgba(255,255,255,.65); border-radius: 9px; background: rgba(255,255,255,.11); color: #FFFDF9; font-size: 1rem; font-weight: 550; cursor: pointer; }
+            .mobile-menu { flex-direction: column; gap: 4px; margin-top: 14px; padding: 9px; border: 1px solid rgba(255,255,255,.16); border-radius: 13px; background: rgba(255,255,255,.09); backdrop-filter: blur(6px); }
+            .mobile-menu.open { display: flex; }
+            .mobile-menu .dropdown-menu { display: flex; position: static; flex-direction: column; min-width: 0; margin: 0 0 5px 9px; padding: 5px; background: rgba(18, 42, 57, .78); box-shadow: none; }
+            .gemini-credit { margin: 0 0 13px; padding-right: 72px; text-align: left; }
+            .section-tag { top: 15px; right: 14px; }
+            .site-search { width: calc(100% - 24px); margin-top: 14px; }
+            .site-search button { padding: 12px 15px; }
+            .mascot-feature { grid-template-columns: 1fr; gap: 10px; width: calc(100% - 24px); }
+            .mascot-feature img { height: 255px; }
+            .mascot-copy { padding: 10px 5px 15px; text-align: center; }
+            .mascot-feature img:last-of-type { display: none; }
+            .hero-carousel-container { width: calc(100% - 24px); min-height: 340px; margin-top: 20px; }
+            .carousel-copy { max-width: calc(100% - 26px); bottom: 13px; left: 13px; font-size: clamp(1.04rem, 4.4vw, 1.25rem); }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-bar">
+        <div class="gemini-credit">
+            <span class="line-1">✦ Este sitio fue creado por la IA de Google</span>
+            <a href="https://gemini.google.com" target="_blank" rel="noopener" class="line-2">Gemini. Iniciar sesión aquí ↗</a>
+        </div>
+        <span class="section-tag">[ Revistas ]</span>
+        <nav class="desktop-nav" aria-label="Navegación principal">
+            <div class="nav-group">
+                <a href="revistas.html" class="nav-item">Revistas</a>
+                <div class="dropdown-menu">
+                    <a href="revistas.html#comics-manga">Cómics &amp; Manga</a>
+                    <a href="revistas.html#coleccionables">Coleccionables</a>
+                    <a href="revistas.html#sopas-de-letras">Sopas de Letras</a>
+                    <a href="revistas.html#moda">Moda y Estilo</a>
+                    <a href="revistas.html#estilo-de-vida">Revistas Científicas</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="electronica.html" class="nav-item">Electrónica</a>
+                <div class="dropdown-menu">
+                    <a href="electronica.html#bancos-de-memoria">Bancos de Memoria</a>
+                    <a href="electronica.html#audifonos">Audífonos</a>
+                    <a href="electronica.html#videojuegos-retro">Videojuegos Retro</a>
+                    <a href="electronica.html#cámaras-de-vigilancia">Cámaras de Vigilancia</a>
+                    <a href="electronica.html#cables-tipo-c">Cables Tipo C</a>
+                </div>
+            </div>
+            <a href="index.html" class="brand-name">📰 Puesto de Revistas &amp; Bazar</a>
+            <div class="nav-group">
+                <a href="dulces.html" class="nav-item">Dulces</a>
+                <div class="dropdown-menu">
+                    <a href="dulces.html#mazapán-de-la-rosa">Mazapán de la Rosa</a>
+                    <a href="dulces.html#carlos-v-hersheys">Carlos V &amp; Hershey's</a>
+                    <a href="dulces.html#pulparindo">Pulparindo</a>
+                    <a href="dulces.html#gomitas">Gomitas</a>
+                    <a href="dulces.html#chocolates-especiales">Chocolates Especiales</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="cigarros.html" class="nav-item">Cigarros</a>
+                <div class="dropdown-menu">
+                    <a href="cigarros.html#marcas-principales">Marcas Principales</a>
+                    <a href="cigarros.html#puros">Puros</a>
+                    <a href="cigarros.html#encendedores">Encendedores</a>
+                    <a href="cigarros.html#accesorios">Accesorios</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="ofertas.html" class="nav-item">Ofertas del Día</a>
+                <div class="dropdown-menu">
+                    <a href="ofertas.html#paquetes-de-antojo">Paquetes de Antojo</a>
+                    <a href="ofertas.html#descuentos-de-la-semana">Descuentos de la Semana</a>
+                    <a href="ofertas.html#promociones-uber">Promociones Uber</a>
+                </div>
+            </div>
+        </nav>
+        <div class="mobile-header">
+            <a href="index.html" class="brand-name">📰 Puesto &amp; Bazar</a>
+            <button class="menu-toggle-btn" type="button" onclick="toggleMenu()" aria-controls="mobileMenu" aria-expanded="false">☰ Menú</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="nav-group">
+                <a href="revistas.html" class="nav-item">Revistas</a>
+                <div class="dropdown-menu">
+                    <a href="revistas.html#comics-manga">Cómics &amp; Manga</a>
+                    <a href="revistas.html#coleccionables">Coleccionables</a>
+                    <a href="revistas.html#sopas-de-letras">Sopas de Letras</a>
+                    <a href="revistas.html#moda">Moda y Estilo</a>
+                    <a href="revistas.html#estilo-de-vida">Revistas Científicas</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="electronica.html" class="nav-item">Electrónica</a>
+                <div class="dropdown-menu">
+                    <a href="electronica.html#bancos-de-memoria">Bancos de Memoria</a>
+                    <a href="electronica.html#audifonos">Audífonos</a>
+                    <a href="electronica.html#videojuegos-retro">Videojuegos Retro</a>
+                    <a href="electronica.html#cámaras-de-vigilancia">Cámaras de Vigilancia</a>
+                    <a href="electronica.html#cables-tipo-c">Cables Tipo C</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="dulces.html" class="nav-item">Dulces</a>
+                <div class="dropdown-menu">
+                    <a href="dulces.html#mazapán-de-la-rosa">Mazapán de la Rosa</a>
+                    <a href="dulces.html#carlos-v-hersheys">Carlos V &amp; Hershey's</a>
+                    <a href="dulces.html#pulparindo">Pulparindo</a>
+                    <a href="dulces.html#gomitas">Gomitas</a>
+                    <a href="dulces.html#chocolates-especiales">Chocolates Especiales</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="cigarros.html" class="nav-item">Cigarros</a>
+                <div class="dropdown-menu">
+                    <a href="cigarros.html#marcas-principales">Marcas Principales</a>
+                    <a href="cigarros.html#puros">Puros</a>
+                    <a href="cigarros.html#encendedores">Encendedores</a>
+                    <a href="cigarros.html#accesorios">Accesorios</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <a href="ofertas.html" class="nav-item">Ofertas del Día</a>
+                <div class="dropdown-menu">
+                    <a href="ofertas.html#paquetes-de-antojo">Paquetes de Antojo</a>
+                    <a href="ofertas.html#descuentos-de-la-semana">Descuentos de la Semana</a>
+                    <a href="ofertas.html#promociones-uber">Promociones Uber</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <h2>¿Viste algo que te interesa? ¡Te lo enviamos por Uber!</h2>
+        <p>Pide por WhatsApp, paga el costo de envío y te llega directo a tu domicilio.</p>
+    </section>
+    <form class="site-search" role="search" onsubmit="return false;">
+        <label class="sr-only" for="siteSearch">Buscar productos o secciones</label>
+        <input id="siteSearch" name="q" type="search" placeholder="Aquí encontrarás lo que necesitas" autocomplete="off">
+        <button type="submit">Buscar</button>
+    </form>
+    <section class="mascot-feature" aria-label="Don Perrote, mascota del puesto">
+        <img src="assets/img/don-perrote/don-perrote-leyendo-periodico.webp" alt="Don Perrote leyendo el periódico en el quiosco">
+        <div class="mascot-copy">
+            <span class="mascot-kicker">Nuestra mascota</span>
+            <h1>Don Perrote recomienda una buena lectura</h1>
+            <p>Aquí encontrarás revistas, cómics y coleccionables. Próximamente Don Perrote tendrá su versión intelectual, lista para la hora del té.</p>
+        </div>
+        <img src="assets/img/carrusel-cabecera/foto5.png" alt="Don Perrote cuidando el puesto junto a un niño">
+    </section>
+    <main class="page-content"><p>Explora publicaciones y piezas para disfrutar tu tiempo libre.</p></main>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const button = document.querySelector('.menu-toggle-btn');
+            const open = menu.classList.toggle('open');
+            button.setAttribute('aria-expanded', String(open));
+        }
+    </script>
+</body>
+</html>
