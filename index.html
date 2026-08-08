@@ -30,12 +30,7 @@
         .hero { padding: 25px 20px; border-bottom: 1px solid #F2D8A3; background: linear-gradient(110deg, #FFF1DB, #FFF9F0); text-align: center; }
         .hero h2 { margin: 0 0 6px; color: var(--azul); font-size: 1.35rem; font-weight: 650; }
         .hero p { margin: 0; color: #536474; font-size: 1.04rem; font-weight: 400; }
-        .mascot-feature { display: grid; grid-template-columns: minmax(210px, 310px) minmax(0, 1fr) minmax(210px, 310px); align-items: center; gap: 16px; width: min(1180px, calc(100% - 32px)); margin: 28px auto; padding: 8px; border: 1px solid rgba(18,59,93,.10); border-radius: 20px; background: rgba(255,253,249,.68); box-shadow: 0 10px 28px rgba(18,59,93,.07); }
-        .mascot-feature img { width: 100%; height: 250px; object-fit: cover; border-radius: 14px; display: block; }
-        .mascot-copy { padding: 12px 18px; }
-        .mascot-kicker { display: inline-block; margin-bottom: 7px; color: var(--naranja); font-size: .87rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-        .mascot-copy h1 { margin: 0 0 8px; color: var(--azul); font-size: clamp(1.32rem, 3vw, 2rem); font-weight: 660; }
-        .mascot-copy p { max-width: 620px; margin: 0; color: #526273; font-size: 1.05rem; font-weight: 400; line-height: 1.55; }
+        /* Estilos obsoletos de .mascot-feature desactivados para dar paso al rediseño responsivo a pantalla completa con Tailwind CSS */
         .hero-carousel-container { position: relative; width: min(1160px, calc(100% - 32px)); height: min(57vw, 540px); min-height: 330px; margin: 28px auto 46px; overflow: hidden; border: 5px solid rgba(255,253,249,.94); border-radius: 20px; background: #D9E7EC; box-shadow: 0 14px 32px rgba(18,59,93,.16); }
         .hero-carousel-slide { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 950ms ease-in-out; }
         .hero-carousel-slide.active { opacity: 1; }
@@ -62,10 +57,7 @@
             .section-tag { top: 15px; right: 14px; }
             .site-search { width: calc(100% - 24px); margin-top: 14px; }
             .site-search button { padding: 12px 15px; }
-            .mascot-feature { grid-template-columns: 1fr; gap: 10px; width: calc(100% - 24px); }
-            .mascot-feature img { height: 255px; }
-            .mascot-copy { padding: 10px 5px 15px; text-align: center; }
-            .mascot-feature img:last-of-type { display: none; }
+            /* Estilos responsivos antiguos de mascot-feature desactivados */
             .hero-carousel-container { width: calc(100% - 24px); min-height: 340px; margin-top: 20px; }
             .carousel-copy { max-width: calc(100% - 26px); bottom: 13px; left: 13px; font-size: clamp(1.04rem, 4.4vw, 1.25rem); }
         }
@@ -202,77 +194,91 @@
         <input id="siteSearch" name="q" type="search" placeholder="Aquí encontrarás lo que necesitas" autocomplete="off">
         <button type="submit">Buscar</button>
     </form>
-    <!-- MÓDULO UNIFICADO PROPORCIONAL DE 3 COLUMNAS (Mascota + Carrusel de 5 Secciones) -->
-    <section class="mascot-feature my-8" aria-label="Don Perrote y Catálogo del Bazar">
-        <img src="assets/img/carrusel-cabecera/foto6.png" alt="Don Perrote con niña en el Puesto de Revistas y Bazar" class="w-full h-64 object-cover rounded-2xl shadow-md">
-        <div class="mascot-copy-slider relative overflow-hidden rounded-2xl border border-amber-500/20 shadow-lg h-64 bg-slate-950">
+    <!-- MÓDULO REDISEÑADO DE 3 COLUMNAS A PANTALLA COMPLETA (Mayoreo + Carrusel + Contacto) -->
+    <section class="w-full grid grid-cols-1 md:grid-cols-3 gap-0 relative overflow-hidden bg-slate-950 text-white" aria-label="Don Perrote y Catálogo del Bazar">
+        <!-- Panel Izquierdo: Mayoreo y Menudeo -->
+        <div class="relative overflow-hidden w-full h-[380px] md:h-[480px] order-2 md:order-1 group border-r border-slate-800/40">
+            <img src="assets/img/carrusel-cabecera/foto6.png" alt="Ventas a Granel, Menudeo y Mayoreo" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                <span class="text-amber-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">Precios Especiales</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-black mb-3 leading-tight text-white drop-shadow-md">
+                    Ventas a Granel, Menudeo y Mayoreo
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-200 font-semibold mb-2">
+                    — Compra desde 1 pieza
+                </p>
+            </div>
+        </div>
+
+        <!-- Panel Central: Carrusel Principal de 5 Secciones -->
+        <div class="relative overflow-hidden w-full h-[380px] md:h-[480px] order-1 md:order-2 bg-slate-950 border-r border-slate-800/40">
             <!-- Slide 1: Revistas -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-100 z-10 transition-opacity duration-700 ease-in-out">
-                <img src="assets/img/carrusel-cabecera/foto3.png" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
-                    <span class="mascot-kicker text-amber-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Lectura &amp; Entretenimiento</span>
-                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Revistas, Cómics &amp; Coleccionables</h2>
-                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Encuentra tus historias favoritas, sopas de letras y ediciones especiales para disfrutar un momento de relax inolvidable.</p>
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-100 z-10 transition-opacity duration-700 ease-in-out group">
+                <img src="assets/img/carrusel-cabecera/foto3.png" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                    <span class="text-amber-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">Lectura &amp; Entretenimiento</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2 drop-shadow-md">Revistas, Cómics &amp; Coleccionables</h2>
+                    <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">Encuentra tus historias favoritas, sopas de letras y ediciones especiales para disfrutar un momento de relax inolvidable.</p>
                     <div class="flex">
-                        <a href="revistas.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">📖 Explorar Revistas Ahora</a>
+                        <a href="revistas.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">📖 Explorar Revistas Ahora</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 2: Dulces -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
-                <img src="assets/img/carrusel-cabecera/foto2.png" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
-                    <span class="mascot-kicker text-orange-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">¡Date un Gustito Hoy!</span>
-                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Dulces &amp; Botanas Tradicionales</h2>
-                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">El verdadero sabor del antojo. Mazapán de la Rosa, chocolates y tus botanas siempre frescas listos para alegrar tu día.</p>
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
+                <img src="assets/img/carrusel-cabecera/foto2.png" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                    <span class="text-orange-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">¡Date un Gustito Hoy!</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2 drop-shadow-md">Dulces &amp; Botanas Tradicionales</h2>
+                    <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">El verdadero sabor del antojo. Mazapán de la Rosa, chocolates y tus botanas siempre frescas listos para alegrar tu día.</p>
                     <div class="flex">
-                        <a href="dulces.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🍬 Ver Dulces &amp; Botanas</a>
+                        <a href="dulces.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🍬 Ver Dulces &amp; Botanas</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 3: Cigarros -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
-                <img src="assets/img/carrusel-cabecera/foto4.png" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
-                    <span class="mascot-kicker text-slate-300 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Calidad &amp; Variedad Garantizada</span>
-                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Cigarros, Encendedores &amp; Puros</h2>
-                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Las marcas principales que buscas, encendedores y accesorios seleccionados con la atención rápida que mereces.</p>
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
+                <img src="assets/img/carrusel-cabecera/foto4.png" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                    <span class="text-slate-300 font-mono text-xs uppercase font-bold tracking-widest mb-2">Calidad &amp; Variedad Garantizada</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2 drop-shadow-md">Cigarros, Encendedores &amp; Puros</h2>
+                    <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">Las marcas principales que buscas, encendedores y accesorios seleccionados con la atención rápida que mereces.</p>
                     <div class="flex">
-                        <a href="cigarros.html" class="inline-flex items-center gap-2 bg-slate-750 hover:bg-slate-700 text-white border border-slate-600/50 font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🚬 Ver Sección Cigarros</a>
+                        <a href="cigarros.html" class="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white border border-slate-600/50 font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🚬 Ver Sección Cigarros</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 4: Electrónica -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
-                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; PC Custom Lab" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
-                    <span class="mascot-kicker text-indigo-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Tecnología a tu Alcance</span>
-                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Electrónica &amp; PC Custom Lab</h2>
-                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Accede a computadoras armadas completas, componentes, memorias y servicio técnico con respaldo profesional.</p>
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; PC Custom Lab" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                    <span class="text-indigo-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">Tecnología a tu Alcance</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2 drop-shadow-md">Electrónica &amp; PC Custom Lab</h2>
+                    <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">Accede a computadoras armadas completas, componentes, memorias y servicio técnico con respaldo profesional.</p>
                     <div class="flex">
-                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">💻 Visitar PC Custom Lab</a>
+                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">💻 Visitar PC Custom Lab</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 5: Ofertas del Día -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
-                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
-                    <span class="mascot-kicker text-red-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Promociones Exclusivas</span>
-                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Ofertas del Día &amp; Envíos Uber</h2>
-                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">¡Aprovecha los descuentos de la semana y pide tus paquetes de antojo directo a tu domicilio por WhatsApp!</p>
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                    <span class="text-red-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">Promociones Exclusivas</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-2 drop-shadow-md">Ofertas del Día &amp; Envíos Uber</h2>
+                    <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">¡Aprovecha los descuentos de la semana y pide tus paquetes de antojo directo a tu domicilio por WhatsApp!</p>
                     <div class="flex">
-                        <a href="ofertas.html" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🔥 Ver Ofertas del Día</a>
+                        <a href="ofertas.html" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🔥 Ver Ofertas del Día</a>
                     </div>
                 </div>
             </div>
 
             <!-- PUNTOS INDICADORES DE NAVEGACIÓN -->
-            <div class="absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-2">
+            <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
                 <button type="button" onclick="setCenterSlide(0)" aria-label="Ver revistas" class="c-dot w-2.5 h-2.5 rounded-full bg-amber-500 transition-all"></button>
                 <button type="button" onclick="setCenterSlide(1)" aria-label="Ver dulces" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
                 <button type="button" onclick="setCenterSlide(2)" aria-label="Ver cigarros" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
@@ -280,7 +286,23 @@
                 <button type="button" onclick="setCenterSlide(4)" aria-label="Ver ofertas" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
             </div>
         </div>
-        <img src="assets/img/carrusel-cabecera/foto5.png" alt="Don Perrote cuidando el puesto junto a un niño" class="w-full h-64 object-cover rounded-2xl shadow-md">
+
+        <!-- Panel Derecho: Atención Personalizada -->
+        <div class="relative overflow-hidden w-full h-[380px] md:h-[480px] order-3 md:order-3 group">
+            <img src="assets/img/carrusel-cabecera/foto5.png" alt="Atención Personalizada" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
+                <span class="text-amber-400 font-mono text-xs uppercase font-bold tracking-widest mb-2">Atención Directa</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-black mb-3 leading-tight text-white drop-shadow-md">
+                    ¿Buscas atención personalizada?
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-200 mb-4 leading-relaxed max-w-lg">
+                    Estamos listos para atenderte por WhatsApp, resolver tus dudas sobre productos o coordinar envíos de forma directa.
+                </p>
+                <div class="flex">
+                    <a href="#contacto" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">💬 Contáctanos Ahora</a>
+                </div>
+            </div>
+        </div>
     </section>
     <script>
         // CONTROL UNIFICADO DEL CARRUSEL DE 5 SECCIONES CON TRANSICIÓN DE OPACIDAD
