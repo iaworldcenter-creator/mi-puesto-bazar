@@ -202,14 +202,65 @@
         <input id="siteSearch" name="q" type="search" placeholder="Aquí encontrarás lo que necesitas" autocomplete="off">
         <button type="submit">Buscar</button>
     </form>
-    <section class="mascot-feature" aria-label="Don Perrote, mascota del puesto">
-        <img src="assets/img/don-perrote/Gemini_Generated_Image_uo7xl3uo7xl3uo7x.png" alt="Don Perrote ejecutivo da la bienvenida al Puesto de Revistas y Bazar">
-        <div class="mascot-copy">
-            <span class="mascot-kicker">Nuestra mascota</span>
-            <h1>Don Perrote te da la bienvenida</h1>
-            <p>Nuestra mascota acompaña cada visita al puesto. Muy pronto aparecerá con nuevos estilos para cada sección, sin perder su esencia.</p>
+    <!-- MÓDULO DE LA MASCOTA CON SLIDER DE 5 SECCIONES (DEBAJO DE LA BÚSQUEDA) -->
+    <section class="mascot-feature" aria-label="Don Perrote y Carrusel del Bazar">
+        <!-- FOTO IZQUIERDA -->
+        <img src="assets/img/carrusel-cabecera/foto6.png" alt="Don Perrote con niña en el Puesto de Revistas y Bazar">
+
+        <!-- MÓDULO CENTRAL: CARRUSEL DE 5 DIAPOSITIVAS Y BOTONES -->
+        <div class="mascot-copy-slider relative overflow-hidden rounded-xl border border-slate-200/50 p-4 bg-white/80 shadow-inner">
+            <!-- Slide 1: Revistas -->
+            <div class="bazar-center-slide active transition-opacity duration-700 ease-in-out">
+                <span class="mascot-kicker">Lectura &amp; Entretenimiento</span>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Revistas, Cómics &amp; Coleccionables</h1>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4">Sopas de letras, ediciones especializadas, moda y cómics para disfrutar tu tiempo libre.</p>
+                <a href="revistas.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition shadow-md">📖 Explorar Revistas</a>
+            </div>
+
+            <!-- Slide 2: Dulces -->
+            <div class="bazar-center-slide hidden transition-opacity duration-700 ease-in-out">
+                <span class="mascot-kicker">El Verdadero Sabor del Antojo</span>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Dulces &amp; Botanas Tradicionales</h1>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4">Mazapanes de la Rosa, chocolates, Pulparindos y tus botanas favoritas de la tiendita.</p>
+                <a href="dulces.html" class="inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-xs transition shadow-md">🍬 Ver Dulces &amp; Botanas</a>
+            </div>
+
+            <!-- Slide 3: Cigarros -->
+            <div class="bazar-center-slide hidden transition-opacity duration-700 ease-in-out">
+                <span class="mascot-kicker">Marcas Principales &amp; Accesorios</span>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Cigarros, Encendedores &amp; Puros</h1>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4">Marlboro, Montana, encendedores Clipper y accesorios para fumadores.</p>
+                <a href="cigarros.html" class="inline-block bg-slate-800 hover:bg-slate-700 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition shadow-md">🚬 Ver Sección Cigarros</a>
+            </div>
+
+            <!-- Slide 4: Electrónica -->
+            <div class="bazar-center-slide hidden transition-opacity duration-700 ease-in-out">
+                <span class="mascot-kicker">Laboratorio de Tecnología</span>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Electrónica &amp; PC Custom Lab</h1>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4">Computadoras armadas completas, componentes, memorias y servicio técnico especializado.</p>
+                <a href="electronica.html" class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition shadow-md">💻 Ir a PC Custom Lab</a>
+            </div>
+
+            <!-- Slide 5: Ofertas del Día -->
+            <div class="bazar-center-slide hidden transition-opacity duration-700 ease-in-out">
+                <span class="mascot-kicker">Promociones Especiales</span>
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">Ofertas del Día &amp; Paquetes Uber</h1>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4">Descuentos semanales y paquetes de antojo listos para enviar directo a tu puerta.</p>
+                <a href="ofertas.html" class="inline-block bg-red-600 hover:bg-red-500 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition shadow-md">🔥 Ver Ofertas del Día</a>
+            </div>
+
+            <!-- Puntos del carrusel central -->
+            <div class="flex justify-center gap-1.5 mt-4" aria-label="Navegación de secciones">
+                <button type="button" onclick="setCenterSlide(0)" aria-label="Ver revistas" class="c-dot w-2.5 h-2.5 rounded-full bg-orange-500"></button>
+                <button type="button" onclick="setCenterSlide(1)" aria-label="Ver dulces" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-300"></button>
+                <button type="button" onclick="setCenterSlide(2)" aria-label="Ver cigarros" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-300"></button>
+                <button type="button" onclick="setCenterSlide(3)" aria-label="Ver electrónica" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-300"></button>
+                <button type="button" onclick="setCenterSlide(4)" aria-label="Ver ofertas" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-300"></button>
+            </div>
         </div>
-        <img src="assets/img/carrusel-cabecera/foto6.png" alt="Don Perrote cuidando el puesto junto a un niño">
+
+        <!-- FOTO DERECHA -->
+        <img src="assets/img/carrusel-cabecera/foto5.png" alt="Don Perrote cuidando el puesto junto a un niño">
     </section>
     <!-- HERO SLIDER MODERNO ESTILO LAB (ADAPTADO AL BAZAR) -->
     <header class="relative w-full h-[500px] sm:h-[600px] overflow-hidden border-b border-amber-500/30 bg-slate-950 my-6 rounded-3xl shadow-2xl max-w-7xl mx-auto" aria-label="Carrusel de productos y servicios">
@@ -289,6 +340,26 @@
             showBazarSlide(index);
             bazarSliderInterval = setInterval(nextSlideBazar, 5000);
         }
+    </script>
+    <script>
+        let currentCenterSlide = 0;
+        const centerSlides = document.querySelectorAll('.bazar-center-slide');
+        const centerDots = document.querySelectorAll('.c-dot');
+
+        function setCenterSlide(index) {
+            centerSlides[currentCenterSlide].classList.add('hidden');
+            centerDots[currentCenterSlide].classList.remove('bg-orange-500');
+            centerDots[currentCenterSlide].classList.add('bg-slate-300');
+            currentCenterSlide = index;
+            centerSlides[currentCenterSlide].classList.remove('hidden');
+            centerDots[currentCenterSlide].classList.remove('bg-slate-300');
+            centerDots[currentCenterSlide].classList.add('bg-orange-500');
+        }
+
+        setInterval(() => {
+            const nextIndex = (currentCenterSlide + 1) % centerSlides.length;
+            setCenterSlide(nextIndex);
+        }, 4500);
     </script>
     <script>
         function toggleMenu() {
