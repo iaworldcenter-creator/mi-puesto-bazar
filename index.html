@@ -205,62 +205,102 @@
     <!-- MÓDULO UNIFICADO PROPORCIONAL DE 3 COLUMNAS (Mascota + Carrusel de 5 Secciones) -->
     <section class="mascot-feature my-8" aria-label="Don Perrote y Catálogo del Bazar">
         <img src="assets/img/carrusel-cabecera/foto6.png" alt="Don Perrote con niña en el Puesto de Revistas y Bazar" class="w-full h-64 object-cover rounded-2xl shadow-md">
-        <div class="mascot-copy-slider relative overflow-hidden rounded-2xl border border-amber-500/20 p-6 bg-gradient-to-b from-white to-amber-50/50 shadow-lg flex flex-col justify-between min-h-[250px]">
-            <div class="bazar-center-slide active transition-opacity duration-500 ease-in-out">
-                <span class="mascot-kicker text-amber-600 font-mono text-xs uppercase font-bold tracking-wider block mb-1">Lectura &amp; Entretenimiento</span>
-                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Revistas, Cómics &amp; Coleccionables</h1>
-                <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">Encuentra tus historias favoritas, sopas de letras y ediciones especiales para disfrutar un momento de relax inolvidable.</p>
-                <a href="revistas.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">📖 Explorar Revistas Ahora</a>
+        <div class="mascot-copy-slider relative overflow-hidden rounded-2xl border border-amber-500/20 shadow-lg h-64 bg-slate-950">
+            <!-- Slide 1: Revistas -->
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-100 z-10 transition-opacity duration-700 ease-in-out">
+                <img src="assets/img/carrusel-cabecera/foto3.png" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
+                    <span class="mascot-kicker text-amber-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Lectura &amp; Entretenimiento</span>
+                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Revistas, Cómics &amp; Coleccionables</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Encuentra tus historias favoritas, sopas de letras y ediciones especiales para disfrutar un momento de relax inolvidable.</p>
+                    <div class="flex">
+                        <a href="revistas.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">📖 Explorar Revistas Ahora</a>
+                    </div>
+                </div>
             </div>
-            <div class="bazar-center-slide hidden transition-opacity duration-500 ease-in-out">
-                <span class="mascot-kicker text-orange-600 font-mono text-xs uppercase font-bold tracking-wider block mb-1">¡Date un Gustito Hoy!</span>
-                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Dulces &amp; Botanas Tradicionales</h1>
-                <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">El verdadero sabor del antojo. Mazapán de la Rosa, chocolates y tus botanas siempre frescas listos para alegrar tu día.</p>
-                <a href="dulces.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🍬 Ver Dulces &amp; Botanas</a>
+
+            <!-- Slide 2: Dulces -->
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
+                <img src="assets/img/carrusel-cabecera/foto2.png" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
+                    <span class="mascot-kicker text-orange-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">¡Date un Gustito Hoy!</span>
+                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Dulces &amp; Botanas Tradicionales</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">El verdadero sabor del antojo. Mazapán de la Rosa, chocolates y tus botanas siempre frescas listos para alegrar tu día.</p>
+                    <div class="flex">
+                        <a href="dulces.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🍬 Ver Dulces &amp; Botanas</a>
+                    </div>
+                </div>
             </div>
-            <div class="bazar-center-slide hidden transition-opacity duration-500 ease-in-out">
-                <span class="mascot-kicker text-slate-600 font-mono text-xs uppercase font-bold tracking-wider block mb-1">Calidad &amp; Variedad Garantizada</span>
-                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Cigarros, Encendedores &amp; Puros</h1>
-                <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">Las marcas principales que buscas, encendedores y accesorios seleccionados con la atención rápida que mereces.</p>
-                <a href="cigarros.html" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🚬 Ver Sección Cigarros</a>
+
+            <!-- Slide 3: Cigarros -->
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
+                <img src="assets/img/carrusel-cabecera/foto4.png" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
+                    <span class="mascot-kicker text-slate-300 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Calidad &amp; Variedad Garantizada</span>
+                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Cigarros, Encendedores &amp; Puros</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Las marcas principales que buscas, encendedores y accesorios seleccionados con la atención rápida que mereces.</p>
+                    <div class="flex">
+                        <a href="cigarros.html" class="inline-flex items-center gap-2 bg-slate-750 hover:bg-slate-700 text-white border border-slate-600/50 font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🚬 Ver Sección Cigarros</a>
+                    </div>
+                </div>
             </div>
-            <div class="bazar-center-slide hidden transition-opacity duration-500 ease-in-out">
-                <span class="mascot-kicker text-indigo-600 font-mono text-xs uppercase font-bold tracking-wider block mb-1">Tecnología a tu Alcance</span>
-                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Electrónica &amp; PC Custom Lab</h1>
-                <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">Accede a computadoras armadas completas, componentes, memorias y servicio técnico con respaldo profesional.</p>
-                <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">💻 Visitar PC Custom Lab</a>
+
+            <!-- Slide 4: Electrónica -->
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; PC Custom Lab" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
+                    <span class="mascot-kicker text-indigo-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Tecnología a tu Alcance</span>
+                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Electrónica &amp; PC Custom Lab</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">Accede a computadoras armadas completas, componentes, memorias y servicio técnico con respaldo profesional.</p>
+                    <div class="flex">
+                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">💻 Visitar PC Custom Lab</a>
+                    </div>
+                </div>
             </div>
-            <div class="bazar-center-slide hidden transition-opacity duration-500 ease-in-out">
-                <span class="mascot-kicker text-red-600 font-mono text-xs uppercase font-bold tracking-wider block mb-1">Promociones Exclusivas</span>
-                <h1 class="text-xl sm:text-2xl font-black text-slate-900 mb-2">Ofertas del Día &amp; Envíos Uber</h1>
-                <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">¡Aprovecha los descuentos de la semana y pide tus paquetes de antojo directo a tu domicilio por WhatsApp!</p>
-                <a href="ofertas.html" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">🔥 Ver Ofertas del Día</a>
+
+            <!-- Slide 5: Ofertas del Día -->
+            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-slate-950/65 flex flex-col justify-end p-5 text-white">
+                    <span class="mascot-kicker text-red-400 font-mono text-[10px] sm:text-xs uppercase font-bold tracking-wider block mb-1">Promociones Exclusivas</span>
+                    <h2 class="text-base sm:text-lg md:text-xl font-black text-white mb-1 drop-shadow-sm">Ofertas del Día &amp; Envíos Uber</h2>
+                    <p class="text-[11px] sm:text-xs text-slate-200 mb-3 leading-relaxed line-clamp-2 max-w-lg">¡Aprovecha los descuentos de la semana y pide tus paquetes de antojo directo a tu domicilio por WhatsApp!</p>
+                    <div class="flex">
+                        <a href="ofertas.html" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2 rounded-xl text-[10px] sm:text-xs transition shadow-md hover:scale-105">🔥 Ver Ofertas del Día</a>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center gap-2 pt-2 border-t border-slate-200/60" aria-label="Navegación de secciones">
-                <button type="button" onclick="setCenterSlide(0)" aria-label="Ver revistas" class="c-dot w-3 h-3 rounded-full bg-amber-500 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(1)" aria-label="Ver dulces" class="c-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(2)" aria-label="Ver cigarros" class="c-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(3)" aria-label="Ver electrónica" class="c-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(4)" aria-label="Ver ofertas" class="c-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
+
+            <!-- PUNTOS INDICADORES DE NAVEGACIÓN -->
+            <div class="absolute bottom-3 left-0 right-0 z-20 flex justify-center gap-2">
+                <button type="button" onclick="setCenterSlide(0)" aria-label="Ver revistas" class="c-dot w-2.5 h-2.5 rounded-full bg-amber-500 transition-all"></button>
+                <button type="button" onclick="setCenterSlide(1)" aria-label="Ver dulces" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
+                <button type="button" onclick="setCenterSlide(2)" aria-label="Ver cigarros" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
+                <button type="button" onclick="setCenterSlide(3)" aria-label="Ver electrónica" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
+                <button type="button" onclick="setCenterSlide(4)" aria-label="Ver ofertas" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
             </div>
         </div>
         <img src="assets/img/carrusel-cabecera/foto5.png" alt="Don Perrote cuidando el puesto junto a un niño" class="w-full h-64 object-cover rounded-2xl shadow-md">
     </section>
     <script>
-        // CONTROL UNIFICADO DEL CARRUSEL DE 5 SECCIONES
+        // CONTROL UNIFICADO DEL CARRUSEL DE 5 SECCIONES CON TRANSICIÓN DE OPACIDAD
         let currentCenterSlide = 0;
         const centerSlides = document.querySelectorAll('.bazar-center-slide');
         const centerDots = document.querySelectorAll('.c-dot');
 
         function setCenterSlide(index) {
-            centerSlides[currentCenterSlide].classList.add('hidden');
+            // Ocultar diapositiva actual
+            centerSlides[currentCenterSlide].classList.remove('opacity-100', 'z-10');
+            centerSlides[currentCenterSlide].classList.add('opacity-0', 'z-0');
             centerDots[currentCenterSlide].classList.remove('bg-amber-500');
-            centerDots[currentCenterSlide].classList.add('bg-slate-300');
+            centerDots[currentCenterSlide].classList.add('bg-slate-400');
 
             currentCenterSlide = index;
 
-            centerSlides[currentCenterSlide].classList.remove('hidden');
-            centerDots[currentCenterSlide].classList.remove('bg-slate-300');
+            // Mostrar nueva diapositiva
+            centerSlides[currentCenterSlide].classList.remove('opacity-0', 'z-0');
+            centerSlides[currentCenterSlide].classList.add('opacity-100', 'z-10');
+            centerDots[currentCenterSlide].classList.remove('bg-slate-400');
             centerDots[currentCenterSlide].classList.add('bg-amber-500');
         }
 
