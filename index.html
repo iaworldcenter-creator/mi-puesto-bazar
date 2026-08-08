@@ -205,7 +205,7 @@
     <section class="w-full grid grid-cols-1 md:grid-cols-[30%_40%_30%] gap-0 relative overflow-hidden bg-slate-950 text-white" aria-label="Catálogo del Bazar y PC Custom Lab">
         <!-- Panel Izquierdo: Atención Personalizada (Video Ensamblado) -->
         <a href="https://wa.me/523337271440" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-2 md:order-1 group block cursor-pointer border-r border-slate-800/40">
-            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tech-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tech-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
                 <source src="assets/img/carrusel-cabecera/Female_technician_assembling_gam_202608041518.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
@@ -265,13 +265,13 @@
 
             <!-- Slide 4: Electrónica -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; PC Custom Lab" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; Tecnología" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-indigo-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Tecnología a tu Alcance</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Electrónica &amp; PC Custom Lab</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">Accede a computadoras armadas completas, componentes, memorias y servicio técnico con respaldo profesional.</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Electrónica &amp; Tecnología</h2>
+                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">Celulares, audífonos, bancos de memoria, fuentes de poder, power banks, lentes inteligentes y lo último en gadgets de tecnología.</p>
                     <div class="flex justify-center">
-                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">💻 Visitar PC Custom Lab</a>
+                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">💻 Ir a Electrónica &amp; Gadgets</a>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,7 @@
 
         <!-- Panel Derecho: Creado con Google Gemini (Tigre Ejecutivo + Esfera Gemini Link) -->
         <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-3 md:order-3 group block cursor-pointer">
-            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tiger-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tiger-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
                 <source src="assets/img/carrusel-cabecera/Tiger_walking_in_warehouse_202608072327.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
@@ -350,6 +350,20 @@
         // Ajustar velocidad de videos y pausar 5 segundos al finalizar
         document.addEventListener('DOMContentLoaded', () => {
             const videos = document.querySelectorAll('video');
+            
+            const forcePlayAll = () => {
+                videos.forEach(video => {
+                    video.playbackRate = 0.6;
+                    if (video.paused) {
+                        video.play().catch(err => console.log("Fuerza de reproduccion video fallida:", err));
+                    }
+                });
+            };
+
+            // Asegurar reproduccion simultanea al primer toque o click en la pantalla (desbloqueo movil)
+            document.addEventListener('click', forcePlayAll, { once: true });
+            document.addEventListener('touchstart', forcePlayAll, { once: true });
+
             videos.forEach(video => {
                 video.loop = false;
                 video.playbackRate = 0.6;
@@ -358,6 +372,7 @@
                 });
                 video.addEventListener('ended', () => {
                     setTimeout(() => {
+                        video.playbackRate = 0.6;
                         video.play().catch(err => console.log("Reinicio de video prevenido:", err));
                     }, 5000);
                 });
