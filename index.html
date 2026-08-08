@@ -123,51 +123,61 @@
     <a href="https://www.instagram.com/pccustomlab/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-pink-600/10 border border-pink-500/30 text-pink-500 hover:bg-pink-600 hover:text-white transition flex items-center justify-center text-lg relative group" title="Instagram"><i class="fa-brands fa-instagram"></i><span class="absolute left-14 bg-slate-900 border border-slate-800 text-white text-[10px] font-mono px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Instagram</span></a>
     <a href="https://t.me/pc_custom_lab" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center text-lg relative group" title="Telegram"><i class="fa-brands fa-telegram"></i><span class="absolute left-14 bg-slate-900 border border-slate-800 text-white text-[10px] font-mono px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Telegram</span></a>
 </div>
-    <a href="https://t.me/pc_custom_lab" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center text-lg relative group" title="Telegram"><i class="fa-brands fa-telegram"></i><span class="absolute left-14 bg-slate-900 border border-slate-800 text-white text-[10px] font-mono px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Telegram</span></a>
-</div>
 
-    <header class="main-bar bg-slate-950 border-b border-slate-800">
-        <div class="gemini-credit">
-            <span class="line-1">✦ Este sitio fue creado por la IA de Google</span>
-            <a href="https://gemini.google.com" target="_blank" rel="noopener" class="line-2">Gemini. Iniciar sesión aquí ↗</a>
-        </div>
-        <span class="section-tag">[ Inicio ]</span>
-        <nav class="desktop-nav" aria-label="Navegación principal">
-            <a href="index.html" class="flex items-center space-x-3 text-left hover:scale-102 transition mr-6 shrink-0">
-                <img src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500 shadow-md shadow-blue-500/20">
-                <div>
-                    <span class="text-base font-black tracking-wider text-white block leading-tight">Puesto de Revistas &amp; Bazar</span>
-                    <span class="text-xs font-mono font-bold tracking-widest text-slate-400 block">NFL.GDL</span>
-                </div>
-            </a>
-            <div class="flex items-center gap-2">
-                <a href="revistas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-book-open"></i> Revistas
-                </a>
-                <a href="dulces.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-candy-cane"></i> Dulces
-                </a>
-                <a href="cigarros.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-smoking"></i> Cigarros
-                </a>
-                <a href="electronica.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-laptop"></i> Electrónica
-                </a>
-                <a href="ofertas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-fire text-amber-300"></i> Ofertas
+    <header class="main-bar bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-4">
+        <!-- Fila superior: Logo y marca en el centro, crédito Gemini en el extremo derecho -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+            <!-- Columna izquierda: Vacía en desktop para equilibrar el centrado de la marca -->
+            <div class="hidden md:block"></div>
+            
+            <!-- Columna central: Logo circular y Marca CENTRADOS -->
+            <div class="flex flex-col items-center text-center">
+                <img src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md shadow-blue-500/30 mb-2">
+                <h1 class="text-xl sm:text-2xl font-black tracking-wider text-blue-500 leading-tight">Puesto de Revistas &amp; Bazar</h1>
+                <span class="text-xs font-mono font-bold tracking-widest text-blue-400 block mt-0.5">NFL.GDL</span>
+            </div>
+            
+            <!-- Columna derecha: Crédito de Gemini alineado a la derecha -->
+            <div class="text-center md:text-right font-sans flex flex-col items-center md:items-end justify-center">
+                <span class="text-slate-400 text-xs font-semibold">✦ Este sitio fue creado por la IA de Google</span>
+                <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 font-black text-sm tracking-wide mt-0.5 transition flex items-center gap-1">
+                    Gemini. Iniciar sesión aquí <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                 </a>
             </div>
+        </div>
+        
+        <!-- Fila inferior: Menú de Navegación de Botones Azules (Desktop) -->
+        <nav class="hidden md:flex items-center justify-center gap-3 mt-2" aria-label="Navegación principal">
+            <a href="revistas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-book-open"></i> Revistas
+            </a>
+            <a href="dulces.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-candy-cane"></i> Dulces
+            </a>
+            <a href="cigarros.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-smoking"></i> Cigarros
+            </a>
+            <a href="electronica.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-laptop"></i> Electrónica
+            </a>
+            <a href="ofertas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-fire text-amber-300"></i> Ofertas
+            </a>
         </nav>
-        <div class="mobile-header flex items-center justify-between w-full">
-            <a href="index.html" class="flex items-center space-x-3 text-left hover:scale-102 transition">
+
+        <!-- Cabecera Móvil (Solo visible en pantallas chicas) -->
+        <div class="mobile-header hidden flex md:hidden items-center justify-between w-full mt-2">
+            <a href="index.html" class="flex items-center space-x-3 text-left">
                 <img src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-10 h-10 rounded-full object-cover border border-blue-500 shadow-md shadow-blue-500/20">
                 <div>
-                    <span class="text-xs font-black tracking-wider text-white block leading-tight">Puesto de Revistas &amp; Bazar</span>
-                    <span class="text-[9px] font-mono font-bold tracking-widest text-slate-400 block">NFL.GDL</span>
+                    <span class="text-xs font-black tracking-wider text-blue-500 block leading-tight">Puesto de Revistas &amp; Bazar</span>
+                    <span class="text-[9px] font-mono font-bold tracking-widest text-blue-500 block">NFL.GDL</span>
                 </div>
             </a>
             <button class="menu-toggle-btn" type="button" onclick="toggleMenu()" aria-controls="mobileMenu" aria-expanded="false">☰ Menú</button>
         </div>
+
+        <!-- Menú Móvil Toggle -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="revistas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm text-center flex items-center justify-center gap-2 mb-2"><i class="fa-solid fa-book-open"></i> Revistas</a>
             <a href="dulces.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2.5 rounded-xl transition text-sm text-center flex items-center justify-center gap-2 mb-2"><i class="fa-solid fa-candy-cane"></i> Dulces</a>
