@@ -46,6 +46,8 @@
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
         .page-content { max-width: 900px; margin: 0 auto; padding: 0 20px 46px; text-align: center; }
         .page-content p { margin: 0; color: #536474; font-size: 1.08rem; line-height: 1.55; }
+        .object-tech-bazar { object-fit: cover; object-position: 40% center; }
+        .object-tiger-bazar { object-fit: cover; object-position: 75% center; }
         @media (max-width: 900px) {
             .desktop-nav { display: none; }
             .mobile-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -195,10 +197,10 @@
         <button type="submit">Buscar</button>
     </form>
     <!-- MÓDULO REDISEÑADO DE 3 COLUMNAS A PANTALLA COMPLETA (Mayoreo + Carrusel + Contacto) -->
-    <section class="w-full grid grid-cols-1 md:grid-cols-[15%_70%_15%] gap-0 relative overflow-hidden bg-slate-950 text-white" aria-label="Catálogo del Bazar y PC Custom Lab">
+    <section class="w-full grid grid-cols-1 md:grid-cols-[30%_40%_30%] gap-0 relative overflow-hidden bg-slate-950 text-white" aria-label="Catálogo del Bazar y PC Custom Lab">
         <!-- Panel Izquierdo: Mayoreo y Menudeo (Video Ensamblado) -->
         <div class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-2 md:order-1 group border-r border-slate-800/40">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-tech-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <source src="assets/img/carrusel-cabecera/Female_technician_assembling_gam_202608041518.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
@@ -291,7 +293,7 @@
 
         <!-- Panel Derecho: Atención Personalizada (Tigre Ejecutivo + Esfera Gemini Link) -->
         <a href="https://gemini.google.com" target="_blank" rel="noopener" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-3 md:order-3 group block cursor-pointer">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-tiger-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <source src="assets/img/carrusel-cabecera/Tiger_walking_in_warehouse_202608072327.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
