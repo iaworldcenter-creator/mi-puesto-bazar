@@ -123,7 +123,7 @@
     <a href="https://www.instagram.com/pccustomlab/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-pink-600/10 border border-pink-500/30 text-pink-500 hover:bg-pink-600 hover:text-white transition flex items-center justify-center text-lg relative group" title="Instagram"><i class="fa-brands fa-instagram"></i><span class="absolute left-14 bg-slate-900 border border-slate-800 text-white text-[10px] font-mono px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Instagram</span></a>
     <a href="https://t.me/pc_custom_lab" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cyan-600/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white transition flex items-center justify-center text-lg relative group" title="Telegram"><i class="fa-brands fa-telegram"></i><span class="absolute left-14 bg-slate-900 border border-slate-800 text-white text-[10px] font-mono px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Telegram</span></a>
 </div>
-    <header class="main-bar bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-4">
+    <header class="main-bar bg-slate-950 border-b border-slate-800 p-6 flex flex-col gap-6">
         <!-- Fila superior: Logo y marca en el centro, crédito Gemini en el extremo derecho -->
         <div class="w-full grid grid-cols-1 md:grid-cols-3 items-center gap-4">
             <!-- Columna izquierda: Vacía en desktop para equilibrar el centrado de la marca -->
@@ -133,7 +133,7 @@
             <div class="flex flex-col items-center text-center">
                 <img src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md shadow-blue-500/30 mb-2">
                 <span class="text-xl sm:text-2xl font-black tracking-wider text-blue-500 block leading-tight">Puesto de Revistas &amp; Bazar</span>
-                <span class="text-xs font-mono font-bold tracking-widest text-blue-400 block mt-0.5">NFL.GDL</span>
+                <span class="text-xs font-mono font-bold tracking-widest text-blue-400 block mt-0.5">NFL.GDL - TARJETA MADRE</span>
             </div>
             
             <!-- Columna derecha: Crédito de Gemini alineado a la derecha -->
@@ -145,243 +145,302 @@
             </div>
         </div>
         
-        <!-- Fila inferior: Menú de Navegación de Botones Azules (Desktop) -->
-        <nav class="hidden md:flex items-center justify-center gap-3 mt-2" aria-label="Navegación principal">
+        <!-- Nivel Superior: Barra de Enlaces Directos (Desktop) -->
+        <nav class="hidden md:flex items-center justify-center gap-3 w-full" aria-label="Navegación principal">
             <a href="https://iaworldcenter-creator.github.io/kiosco-digital/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
-                <i class="fa-solid fa-book-open"></i> Revistas
+                <i class="fa-solid fa-book-open"></i> Kiosco Digital
             </a>
             <a href="https://iaworldcenter-creator.github.io/dulces-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
-                <i class="fa-solid fa-candy-cane"></i> Dulces
+                <i class="fa-solid fa-candy-cane"></i> Dulcería &amp; Botanas
             </a>
             <a href="https://iaworldcenter-creator.github.io/cigarros-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
-                <i class="fa-solid fa-smoking"></i> Cigarros
+                <i class="fa-solid fa-smoking"></i> Cigarros &amp; Accesorios
             </a>
-            <a href="electronica.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
-                <i class="fa-solid fa-laptop"></i> Electrónica
+            <a href="https://iaworldcenter-creator.github.io/pc-custom-lab/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-laptop"></i> PC Custom Lab
             </a>
-            <a href="ofertas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
-                <i class="fa-solid fa-fire text-amber-300"></i> Ofertas
+            <a href="https://iaworldcenter-creator.github.io/mi-puesto-bazar/#ofertas" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl transition text-sm shadow-md flex items-center gap-2 hover:scale-103">
+                <i class="fa-solid fa-fire text-amber-300"></i> Ofertas y Liquidaciones
             </a>
         </nav>
 
-        <!-- Botones de Navegación Directa para Celulares (3 arriba, 2 abajo) -->
-        <div class="block md:hidden w-full px-2 mt-2">
-            <div class="grid grid-cols-3 gap-2.5">
-                <a href="https://iaworldcenter-creator.github.io/kiosco-digital/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-1 rounded-2xl text-center text-sm shadow-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform">
-                    <i class="fa-solid fa-book-open text-lg"></i>
-                    <span>Revistas</span>
+        <!-- Botones de Navegación Directa para Celulares (Nivel Superior Móvil) -->
+        <div class="block md:hidden w-full px-2">
+            <div class="grid grid-cols-2 gap-2.5">
+                <a href="https://iaworldcenter-creator.github.io/kiosco-digital/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-1 rounded-xl text-center text-xs shadow-lg flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-book-open text-base"></i>
+                    <span>Kiosco Digital</span>
                 </a>
-                <a href="https://iaworldcenter-creator.github.io/dulces-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-1 rounded-2xl text-center text-sm shadow-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform">
-                    <i class="fa-solid fa-candy-cane text-lg"></i>
-                    <span>Dulces</span>
+                <a href="https://iaworldcenter-creator.github.io/dulces-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-1 rounded-xl text-center text-xs shadow-lg flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-candy-cane text-base"></i>
+                    <span>Dulcería &amp; Botanas</span>
                 </a>
-                <a href="https://iaworldcenter-creator.github.io/cigarros-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-1 rounded-2xl text-center text-sm shadow-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform">
-                    <i class="fa-solid fa-smoking text-lg"></i>
-                    <span>Cigarros</span>
+                <a href="https://iaworldcenter-creator.github.io/cigarros-bazar/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-1 rounded-xl text-center text-xs shadow-lg flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-smoking text-base"></i>
+                    <span>Cigarros &amp; Accesorios</span>
                 </a>
-            </div>
-            <div class="grid grid-cols-2 gap-2.5 mt-2.5">
-                <a href="electronica.html" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-1 rounded-2xl text-center text-sm shadow-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform">
-                    <i class="fa-solid fa-laptop text-lg"></i>
-                    <span>Electrónica</span>
-                </a>
-                <a href="ofertas.html" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-4 px-1 rounded-2xl text-center text-sm shadow-lg flex flex-col items-center justify-center gap-1.5 active:scale-95 transition-transform">
-                    <i class="fa-solid fa-fire text-amber-300 text-lg"></i>
-                    <span>Ofertas</span>
+                <a href="https://iaworldcenter-creator.github.io/pc-custom-lab/" class="bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-1 rounded-xl text-center text-xs shadow-lg flex flex-col items-center justify-center gap-1 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-laptop text-base"></i>
+                    <span>PC Custom Lab</span>
                 </a>
             </div>
+            <a href="https://iaworldcenter-creator.github.io/mi-puesto-bazar/#ofertas" class="mt-2.5 bg-blue-600 hover:bg-blue-500 text-white font-black py-3 px-1 rounded-xl text-center text-xs shadow-lg flex items-center justify-center gap-2 active:scale-95 transition-transform w-full">
+                <i class="fa-solid fa-fire text-amber-300 text-base"></i>
+                <span>Ofertas y Liquidaciones</span>
+            </a>
+        </div>
+
+        <!-- Nivel Secundario: Buscador Enorme Centrado con logotipo y Ofertas a la derecha -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-8 items-center gap-4 mt-2">
+            <!-- Columna 1: Extrema izquierda (Vacía) -->
+            <div class="hidden md:block col-span-1"></div>
+            
+            <!-- Columnas 2 a 7: Buscador + Logo & Ofertas y Liquidaciones -->
+            <div class="col-span-1 md:col-span-6 flex flex-col md:flex-row items-center gap-4 w-full">
+                <!-- Buscador principal (ocupa los seis espacios dejando un pedazo pequeño a la derecha) -->
+                <form class="flex-1 flex items-center gap-2 p-2 border-2 border-blue-500/60 rounded-xl bg-slate-900 shadow-md shadow-blue-500/20 w-full" role="search" onsubmit="return false;">
+                    <label class="sr-only" for="siteSearch">Buscar en la Matriz</label>
+                    <input id="siteSearch" name="q" type="text" placeholder="¿Qué producto, pieza o antojo buscas hoy? Escribe aquí..." class="flex-1 min-w-0 bg-transparent border-0 outline-none text-white text-sm px-3 placeholder-slate-400" autocomplete="off">
+                    <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-2.5 rounded-lg text-xs transition shadow-md hover:scale-103 shrink-0">Buscar</button>
+                </form>
+                
+                <!-- Pedazo pequeño a la derecha: Logotipo del tigre redondo y nombre Ofertas y Liquidaciones -->
+                <a href="https://iaworldcenter-creator.github.io/mi-puesto-bazar/#ofertas" class="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl p-2 hover:bg-slate-800/60 transition group shrink-0">
+                    <img src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-8 h-8 rounded-full object-cover border border-blue-500 shadow-sm shadow-blue-500/20">
+                    <span class="text-xs font-bold text-amber-400 group-hover:text-amber-300 transition">Ofertas y Liquidaciones</span>
+                </a>
+            </div>
+            
+            <!-- Columna 8: Extrema derecha (Vacía) -->
+            <div class="hidden md:block col-span-1"></div>
         </div>
     </header>
-    <section class="hero">
-        <h2>¿Viste algo que te interesa? ¡Te lo enviamos por Uber!</h2>
-        <p>Pide por WhatsApp, paga el costo de envío y te llega directo a tu domicilio.</p>
-    </section>
-    <form class="site-search" role="search" onsubmit="return false;">
-        <label class="sr-only" for="siteSearch">Buscar productos o secciones</label>
-        <input id="siteSearch" name="q" type="search" placeholder="¿Qué producto, pieza o antojo buscas hoy? Escribe aquí..." autocomplete="off">
-        <button type="submit">Buscar</button>
-    </form>
-    <!-- MÓDULO REDISEÑADO DE 3 COLUMNAS A PANTALLA COMPLETA (Mayoreo + Carrusel + Contacto) -->
-    <section class="w-full grid grid-cols-1 md:grid-cols-[30%_40%_30%] gap-0 relative overflow-hidden bg-slate-950 text-white" aria-label="Catálogo del Bazar y PC Custom Lab">
-        <!-- Panel Izquierdo: Atención Personalizada (Video Ensamblado) -->
-        <a href="https://wa.me/523337271440" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-2 md:order-1 group block cursor-pointer border-r border-slate-800/40">
-            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tech-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
-                <source src="assets/img/carrusel-cabecera/Female_technician_assembling_gam_202608041518.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
-                <span class="text-amber-400 font-mono text-[10px] uppercase font-bold tracking-widest mb-2 block">Tecnología de Vanguardia</span>
-                <h2 class="text-base sm:text-lg md:text-xl font-black mb-2 leading-tight text-white drop-shadow-md">
-                    ¿Buscas atención personalizada?
-                </h2>
-                <p class="text-[10px] sm:text-xs text-slate-200 mb-4 leading-relaxed font-semibold">
-                    Estamos listos para atenderte por WhatsApp, resolver tus dudas sobre productos o coordinar envíos de forma directa.
-                </p>
-                <div class="flex">
-                    <span class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105">💬 Contáctanos Ahora</span>
-                </div>
-            </div>
-        </a>
 
-        <!-- Panel Central: Carrusel Principal de 5 Secciones -->
-        <div class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-1 md:order-2 bg-slate-950 border-r border-slate-800/40">
-            <!-- Slide 1: Revistas -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-100 z-10 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto3.png" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
-                    <span class="text-amber-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Lectura &amp; Entretenimiento</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Revistas, Cómics &amp; Coleccionables</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">Encuentra tus historias favoritas, sopas de letras y ediciones especiales para disfrutar un momento de relax inolvidable.</p>
-                    <div class="flex justify-center">
-                        <a href="https://iaworldcenter-creator.github.io/kiosco-digital/" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">📖 Explorar Revistas Ahora</a>
-                    </div>
-                </div>
-            </div>
+    <!-- MOBILE CATEGORIES NAVIGATION (Horizontal Scrollable) -->
+    <div class="flex md:hidden overflow-x-auto gap-2 p-4 border-b border-slate-800/40 scrollbar-none w-full bg-slate-950 snap-x">
+        <button onclick="filterCategory('all')" class="category-mobile-btn shrink-0 bg-blue-600 text-white font-bold px-4 py-2 rounded-xl text-xs snap-start transition">Todos</button>
+        <button onclick="filterCategory('electronica')" class="category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition">Electrónica</button>
+        <button onclick="filterCategory('cigarros')" class="category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition">Cigarros</button>
+        <button onclick="filterCategory('dulces')" class="category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition">Dulces</button>
+        <button onclick="filterCategory('kiosco')" class="category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition">Kiosco Digital</button>
+        <button onclick="filterCategory('pc')" class="category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition">PC Custom Lab</button>
+    </div>
 
-            <!-- Slide 2: Dulces -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto2.png" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
-                    <span class="text-orange-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">¡Date un Gustito Hoy!</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Dulces &amp; Botanas Tradicionales</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">El verdadero sabor del antojo. Mazapán de la Rosa, chocolates y tus botanas siempre frescas listos para alegrar tu día.</p>
-                    <div class="flex justify-center">
-                        <a href="https://iaworldcenter-creator.github.io/dulces-bazar/" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">🍬 Ver Dulces &amp; Botanas</a>
-                    </div>
-                </div>
-            </div>
+    <!-- MÓDULO DE 8 COLUMNAS A PANTALLA COMPLETA (Matriz E-commerce) -->
+    <section id="ofertas" class="w-full grid grid-cols-1 md:grid-cols-8 gap-0 relative overflow-hidden bg-slate-950 text-white border-b border-slate-800/40" aria-label="Catálogo Madre de Productos">
+        
+        <!-- Columna 1: Extrema izquierda (Vacía) -->
+        <div class="hidden md:block col-span-1 border-r border-slate-900/60 bg-slate-950/20"></div>
 
-            <!-- Slide 3: Cigarros -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto4.png" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
-                    <span class="text-slate-300 font-mono text-xs uppercase font-bold tracking-widest mb-3">Calidad &amp; Variedad Garantizada</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Cigarros, Encendedores &amp; Puros</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">Las marcas principales que buscas, encendedores y accesorios seleccionados con la atención rápida que mereces.</p>
-                    <div class="flex justify-center">
-                        <a href="https://iaworldcenter-creator.github.io/cigarros-bazar/" class="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white border border-slate-600/50 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">🚬 Ver Sección Cigarros</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: Electrónica -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; Tecnología" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
-                    <span class="text-indigo-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Tecnología a tu Alcance</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Electrónica &amp; Tecnología</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">Celulares, audífonos, bancos de memoria, fuentes de poder, power banks, lentes inteligentes y lo último en gadgets de tecnología.</p>
-                    <div class="flex justify-center">
-                        <a href="electronica.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">💻 Ir a Electrónica &amp; Gadgets</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: Ofertas del Día -->
-            <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
-                    <span class="text-red-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Promociones Exclusivas</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Ofertas del Día &amp; Envíos Uber</h2>
-                    <p class="text-xs sm:text-sm md:text-base text-slate-200 mb-6 leading-relaxed max-w-xl">¡Aprovecha los descuentos de la semana y pide tus paquetes de antojo directo a tu domicilio por WhatsApp!</p>
-                    <div class="flex justify-center">
-                        <a href="ofertas.html" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg hover:scale-105">🔥 Ver Ofertas del Día</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PUNTOS INDICADORES DE NAVEGACIÓN -->
-            <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
-                <button type="button" onclick="setCenterSlide(0)" aria-label="Ver revistas" class="c-dot w-2.5 h-2.5 rounded-full bg-amber-500 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(1)" aria-label="Ver dulces" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(2)" aria-label="Ver cigarros" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(3)" aria-label="Ver electrónica" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
-                <button type="button" onclick="setCenterSlide(4)" aria-label="Ver ofertas" class="c-dot w-2.5 h-2.5 rounded-full bg-slate-400 transition-all"></button>
+        <!-- Columna 2: Nombres divisores de productos por categoría -->
+        <div class="hidden md:block col-span-1 border-r border-slate-800/40 p-4 bg-slate-950">
+            <h3 class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-4 font-bold">// Categorías</h3>
+            <div class="flex flex-col gap-2">
+                <button onclick="filterCategory('all')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-blue-600 text-white border border-transparent transition w-full">Todos</button>
+                <button onclick="filterCategory('electronica')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full">Electrónica</button>
+                <button onclick="filterCategory('cigarros')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full">Cigarros</button>
+                <button onclick="filterCategory('dulces')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full">Dulces</button>
+                <button onclick="filterCategory('kiosco')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full">Kiosco Digital</button>
+                <button onclick="filterCategory('pc')" class="category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full">PC Custom Lab</button>
             </div>
         </div>
 
-        <!-- Panel Derecho: Creado con Google Gemini (Tigre Ejecutivo + Esfera Gemini Link) -->
-        <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-3 md:order-3 group block cursor-pointer">
-            <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tiger-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
-                <source src="assets/img/carrusel-cabecera/Tiger_walking_in_warehouse_202608072327.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
-                <span class="text-sky-400 font-mono text-[10px] uppercase font-bold tracking-widest mb-2 block">Inteligencia Artificial</span>
-                <h2 class="text-base sm:text-lg md:text-xl font-black mb-2 leading-tight text-white drop-shadow-md">
-                    Creado con la IA de Google
-                </h2>
-                <p class="text-[10px] sm:text-xs text-slate-200 mb-4 leading-relaxed font-semibold">
-                    Este sitio fue creado con la inteligencia artificial de Google Gemini.
-                </p>
-                <div class="flex">
-                    <span class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md hover:scale-105 shadow-blue-500/25">
-                        <i class="fa-solid fa-wand-magic-sparkles text-sky-200 animate-pulse"></i> ✦ Suscribirse a Gemini
-                    </span>
+        <!-- Columna 3: Nombres de los productos -->
+        <div class="hidden md:block col-span-1 border-r border-slate-800/40 p-4 bg-slate-950">
+            <h3 class="text-xs font-mono text-blue-400 uppercase tracking-widest mb-4 font-bold">// Productos</h3>
+            <ul class="space-y-2">
+                <li data-prod-cat="electronica"><a href="#prod-1" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">1. Audífonos Bluetooth Pro</a></li>
+                <li data-prod-cat="electronica"><a href="#prod-2" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">2. Cargador Ultra GaN 65W</a></li>
+                <li data-prod-cat="cigarros"><a href="#prod-3" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">3. Cigarros Chesterfield</a></li>
+                <li data-prod-cat="cigarros"><a href="#prod-4" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">4. Puros Cohiba Robustos</a></li>
+                <li data-prod-cat="dulces"><a href="#prod-5" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">5. Chocolates de Licor Turin</a></li>
+                <li data-prod-cat="dulces"><a href="#prod-6" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">6. Gomitas Aciduladas Variadas</a></li>
+                <li data-prod-cat="kiosco"><a href="#prod-7" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">7. Revista de Ciencia Digital</a></li>
+                <li data-prod-cat="kiosco"><a href="#prod-8" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">8. Cómic Marvel de Colección</a></li>
+                <li data-prod-cat="pc"><a href="#prod-9" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">9. Enfriamiento Líquido PC</a></li>
+                <li data-prod-cat="pc"><a href="#prod-10" class="product-menu-link text-[11px] font-semibold text-slate-400 hover:text-white transition block py-1.5 px-2 rounded-lg hover:bg-slate-900">10. Mouse Gamer Pro 26K</a></li>
+            </ul>
+        </div>
+
+        <!-- Columnas 4 a 7: Ficha del producto, fotos, descripciones y precios -->
+        <div id="catalog-products-list" class="col-span-1 md:col-span-4 p-4 md:p-6 flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible md:overflow-y-visible snap-x snap-mandatory gap-6 w-full bg-slate-950">
+            
+            <!-- Producto 1: Audífonos Bluetooth -->
+            <div id="prod-1" data-cat="electronica" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="assets/img/carrusel-cabecera/foto1.png" alt="Audífonos Bluetooth Pro" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Electrónica &amp; Gadgets</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Audífonos Bluetooth Pro</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Cancelación de ruido activa (ANC), bluetooth 5.3 de ultra baja latencia y duración de batería de 30 horas continuas con estuche inteligente.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Incluye estuche de carga rápida USB-C y almohadillas lavables de repuesto.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$1,299.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesan%20los%20Audifonos%20Bluetooth%20Pro" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
                 </div>
             </div>
-        </a>
+
+            <!-- Producto 2: Cargador GaN 65W -->
+            <div id="prod-2" data-cat="electronica" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="assets/img/carrusel-cabecera/foto5.png" alt="Cargador GaN 65W" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Electrónica &amp; Accesorios</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Cargador Ultra GaN 65W</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Tecnología GaN avanzada para carga segura a alta velocidad. Tres puertos de salida (2x USB-C y 1x USB-A) para laptop, tablet y celular.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Chip inteligente de distribución de potencia y protección térmica.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$899.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesa%20el%20Cargador%20GaN%2065W" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3: Cigarros Chesterfield -->
+            <div id="prod-3" data-cat="cigarros" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../cigarros-bazar/assets/img/cigarros-1024x576.webp" alt="Chesterfield Original" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Cigarros &amp; Accesorios</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Cigarros Chesterfield Original</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Tabaco de mezcla americana de sabor intenso y consistencia clásica. Cajetilla rígida de 20 cigarrillos premium con filtro.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Venta exclusiva para mayores de edad. Envíos directos en Guadalajara.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$75.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesan%20los%20Cigarros%20Chesterfield" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4: Puros Cohiba Robustos -->
+            <div id="prod-4" data-cat="cigarros" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../cigarros-bazar/assets/img/multimedia.normal.b820fa6aa2345a34.Y2lnYXJyaWxsb3Nfbm9ybWFsLndlYnA=.webp" alt="Cohiba Robustos" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Cigarros &amp; Puros Habanos</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Puros Cohiba Robustos</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Puros torcidos a mano de forma artesanal con hojas selectas de Vuelta Abajo, Cuba. Excelente tiro, combustión uniforme y sabor medio a fuerte.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Conservado cuidadosamente en humidores regulados a 70% de humedad.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$450.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesan%20los%20Puros%20Cohiba%20Robustos" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 5: Chocolates Turin -->
+            <div id="prod-5" data-cat="dulces" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../dulces-bazar/assets/img/duty_free_quito.webp" alt="Chocolates Turin" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Dulcería &amp; Botanas Finas</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Chocolates de Licor Turin</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Chocolates finos rellenos de licores premium seleccionados (Johnnie Walker, Baileys, etc.). Chocolate amargo de alta pureza.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Presentación elegante ideal para regalo en estuche metálico de colección.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$280.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesan%20los%20Chocolates%20Turin" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 6: Gomitas Aciduladas -->
+            <div id="prod-6" data-cat="dulces" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../dulces-bazar/assets/img/whats-the-most-popular-mexican-candy-heres-our-top-6.png" alt="Gomitas Aciduladas" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Dulcería &amp; Snacks</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Gomitas Aciduladas Chamoy</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Una mezcla divertida y deliciosa de gomitas suaves cubiertas con nuestro chilito y chamoy en polvo especial. Sabor agridulce balanceado.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Empacado en envase hermético para garantizar su frescura y suavidad.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$45.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesan%20las%20Gomitas%20Aciduladas" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 7: Revista Científica -->
+            <div id="prod-7" data-cat="kiosco" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../dulces-bazar/assets/img/image.webp" alt="Revista Científica" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Kiosco Digital &amp; Físico</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Revista de Ciencia Digital</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Última edición impresa y digital con artículos exclusivos sobre física cuántica, astrofísica, avances médicos y biotecnología.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: La compra incluye código QR de descarga para la versión digital PDF e interactiva.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$95.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesa%20la%20Revista%20de%20Ciencia%20Digital" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 8: Cómic Marvel -->
+            <div id="prod-8" data-cat="kiosco" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="assets/img/carrusel-cabecera/foto3.png" alt="Cómic Marvel Retro" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">Kiosco Digital - Cómics</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Cómic Marvel de Colección</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Edición de relanzamiento retro en papel satinado de alta calidad con portada variante. ¡Una obra maestra de colección para amantes del arte!</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Empacado con cartón rígido libre de ácido y bolsa protectora de archivo.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$150.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesa%20el%20Comic%20Marvel%20de%20Coleccion" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 9: Enfriamiento Líquido PC -->
+            <div id="prod-9" data-cat="pc" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../pc-custom-lab/assets/img/tigre_gamer.jpg" alt="Enfriamiento Líquido" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">PC Custom Lab - Enfriamiento</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Enfriamiento Líquido Custom 360</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Radiador triple de cobre, ventiladores silenciosos de alta presión estática y bomba controlable por PWM con iluminación RGB direccionable.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Compatible con zócalos Intel y AMD de última generación. Incluye pasta térmica.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$2,499.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesa%20el%20Enfriamiento%20Liquido%20Custom%20360" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 10: Mouse Gamer Pro -->
+            <div id="prod-10" data-cat="pc" class="snap-start shrink-0 w-[85vw] md:w-full bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row gap-4 transition hover:border-blue-500/40 scroll-mt-24">
+                <img src="../pc-custom-lab/assets/img/tigre_software.jpg" alt="Mouse Gamer Pro" class="w-full md:w-40 h-40 object-cover rounded-xl border border-slate-800">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-mono text-blue-400 uppercase tracking-widest block mb-1 font-bold">PC Custom Lab - Periféricos</span>
+                        <h4 class="text-sm sm:text-base font-black text-white mb-2 leading-tight">Mouse Gamer Pro 26K DPI</h4>
+                        <p class="text-xs text-slate-300 mb-2 leading-relaxed">Conexión inalámbrica ultra rápida libre de interferencias, sensor de 26,000 DPI reales, switches ópticos y peso ultraligero de solo 58g.</p>
+                        <p class="text-[10px] text-slate-500 font-medium">Información adicional: Durabilidad de 90 millones de clics, skates de teflón virgen 100%.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="text-base sm:text-lg font-black text-amber-400">$1,899.00 MXN</span>
+                        <a href="https://wa.me/523337271440?text=Hola,%20me%20interesa%20el%20Mouse%20Gamer%20Pro" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-md hover:scale-103 flex items-center gap-1.5">💬 Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Columna 8: Extrema derecha (Vacía) -->
+        <div class="hidden md:block col-span-1 border-l border-slate-900/60 bg-slate-950/20"></div>
     </section>
-    <script>
-        // CONTROL UNIFICADO DEL CARRUSEL DE 5 SECCIONES CON TRANSICIÓN DE OPACIDAD
-        let currentCenterSlide = 0;
-        const centerSlides = document.querySelectorAll('.bazar-center-slide');
-        const centerDots = document.querySelectorAll('.c-dot');
 
-        function setCenterSlide(index) {
-            // Ocultar diapositiva actual
-            centerSlides[currentCenterSlide].classList.remove('opacity-100', 'z-10');
-            centerSlides[currentCenterSlide].classList.add('opacity-0', 'z-0');
-            centerDots[currentCenterSlide].classList.remove('bg-amber-500');
-            centerDots[currentCenterSlide].classList.add('bg-slate-400');
-
-            currentCenterSlide = index;
-
-            // Mostrar nueva diapositiva
-            centerSlides[currentCenterSlide].classList.remove('opacity-0', 'z-0');
-            centerSlides[currentCenterSlide].classList.add('opacity-100', 'z-10');
-            centerDots[currentCenterSlide].classList.remove('bg-slate-400');
-            centerDots[currentCenterSlide].classList.add('bg-amber-500');
-        }
-
-        setInterval(() => {
-            let nextIndex = (currentCenterSlide + 1) % centerSlides.length;
-            setCenterSlide(nextIndex);
-        }, 4500);
-
-        // Ajustar velocidad de videos y pausar 5 segundos al finalizar
-        document.addEventListener('DOMContentLoaded', () => {
-            const videos = document.querySelectorAll('video');
-            
-            const forcePlayAll = () => {
-                videos.forEach(video => {
-                    video.playbackRate = 0.6;
-                    if (video.paused) {
-                        video.play().catch(err => console.log("Fuerza de reproduccion video fallida:", err));
-                    }
-                });
-            };
-
-            // Asegurar reproduccion simultanea al primer toque o click en la pantalla (desbloqueo movil)
-            document.addEventListener('click', forcePlayAll, { once: true });
-            document.addEventListener('touchstart', forcePlayAll, { once: true });
-
-            videos.forEach(video => {
-                video.loop = false;
-                video.playbackRate = 0.6;
-                video.addEventListener('play', () => {
-                    video.playbackRate = 0.6;
-                });
-                video.addEventListener('ended', () => {
-                    setTimeout(() => {
-                        video.playbackRate = 0.6;
-                        video.play().catch(err => console.log("Reinicio de video prevenido:", err));
-                    }, 5000);
-                });
-                if (video.paused) {
-                    video.play().catch(err => console.log("Autoplay de video:", err));
-                }
-            });
-        });
-    </script>
     <script>
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -390,9 +449,85 @@
             button.setAttribute('aria-expanded', String(open));
         }
     </script>
-    <!-- Re-triggering GitHub Pages build -->
+    <script>
+        // Lógica de filtrado de categorías y búsqueda en la Matriz
+        function filterCategory(category) {
+            // Filtrar las tarjetas de productos
+            const cards = document.querySelectorAll('#catalog-products-list > [data-cat]');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-<!-- CONTACTO Y UBICACIÓN OFICIAL EN GUADALAJARA CENTRO -->
+            // Filtrar los nombres de productos de la columna 3 (sólo visible en desktop)
+            const menuItems = document.querySelectorAll('li[data-prod-cat]');
+            menuItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-prod-cat') === category) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Actualizar botones activos de categorías (Desktop)
+            const desktopBtns = document.querySelectorAll('.category-desktop-btn');
+            desktopBtns.forEach(btn => {
+                const btnCategory = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (btnCategory === category) {
+                    btn.className = "category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-blue-600 text-white border border-transparent transition w-full";
+                } else {
+                    btn.className = "category-desktop-btn text-left text-xs font-bold py-2.5 px-3 rounded-xl bg-slate-900 text-slate-300 border border-slate-800/50 hover:bg-slate-800 transition w-full";
+                }
+            });
+
+            // Actualizar botones activos de categorías (Móvil)
+            const mobileBtns = document.querySelectorAll('.category-mobile-btn');
+            mobileBtns.forEach(btn => {
+                const btnCategory = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (btnCategory === category) {
+                    btn.className = "category-mobile-btn shrink-0 bg-blue-600 text-white font-bold px-4 py-2 rounded-xl text-xs snap-start transition";
+                } else {
+                    btn.className = "category-mobile-btn shrink-0 bg-slate-900 text-slate-300 border border-slate-800 font-bold px-4 py-2 rounded-xl text-xs snap-start transition";
+                }
+            });
+        }
+
+        // Búsqueda en tiempo real
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('siteSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('#catalog-products-list > [data-cat]');
+                    const menuItems = document.querySelectorAll('li[data-prod-cat]');
+
+                    cards.forEach(card => {
+                        const title = card.querySelector('h4').textContent.toLowerCase();
+                        const desc = card.querySelector('p').textContent.toLowerCase();
+                        const match = title.includes(query) || desc.includes(query);
+                        
+                        if (match) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    menuItems.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(query)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 <section id="contacto" class="py-20 bg-slate-950 border-t border-slate-800 text-slate-100">
     <div class="max-w-5xl mx-auto px-4 sm:px-6"><div class="bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden"><div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div><span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-2">// Ubicación y Contacto Directo</span><h2 class="text-3xl font-black text-white mb-4">Ubicación y Contacto Directo</h2><p class="text-slate-300 text-sm mb-6 leading-relaxed">Visítanos en nuestras instalaciones en la colonia Centro de Guadalajara para venta de revistas, periódicos, dulces, artículos de bazar y atención personalizada.</p>
