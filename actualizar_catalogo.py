@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-\"\"\"
+"""
 Herramienta de Automatización de Inventario y Catálogo - Puesto de Revistas & Bazar
 Esta herramienta lee 'catalog.csv' e inyecta la base de datos de productos directamente
 en los archivos HTML del sitio. También permite importar productos desde un archivo de proveedor.
@@ -10,7 +10,7 @@ Uso:
      
   2. Para importar nuevos productos de un archivo de proveedor externo:
      python actualizar_catalogo.py --importar archivo_proveedor.csv
-\"\"\"
+"""
 
 import os
 import sys
@@ -30,7 +30,6 @@ def cargar_catalogo_csv(csv_path="catalog.csv"):
     with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            # Limpiar y convertir tipos de datos básicos
             try:
                 row["existencias"] = int(row["existencias"]) if row.get("existencias") else 0
             except ValueError:
@@ -46,7 +45,6 @@ def guardar_catalogo_csv(productos, csv_path="catalog.csv"):
     with open(csv_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
-        # Asegurar que solo escribimos los campos válidos
         for p in productos:
             row = {k: p.get(k, "") for k in fieldnames}
             writer.writerow(row)
@@ -57,12 +55,9 @@ def sincronizar_htmls(productos):
         print("No hay productos en el catálogo para sincronizar.")
         return
 
-    # Convertir productos a representación JSON formateada
     js_array = json.dumps(productos, ensure_ascii=False, indent=8)
-    # Formatear la sangría del inicio y final
     js_array_formatted = "const productCatalog = " + js_array + ";"
 
-    # Expresión regular para encontrar const productCatalog = [ ... ];
     pattern = re.compile(r"const productCatalog\s*=\s*\[.*?\]\s*;", re.DOTALL)
 
     updated_count = 0
@@ -80,7 +75,6 @@ def sincronizar_htmls(productos):
             print(f"  -> Sincronizado: {filename}")
             updated_count += 1
         else:
-            # Intento alternativo de reemplazo basado en marcas de reemplazo si no se detecta la matriz anterior
             print(f"  x No se pudo localizar la variable 'productCatalog' en: {filename}")
 
     print(f"Sincronización terminada. {updated_count} archivos actualizados.")
@@ -92,20 +86,14 @@ def importar_proveedor(proveedor_csv_path):
 
     print(f"Iniciando importación desde '{proveedor_csv_path}'...")
     
-    # Cargar base de datos actual
     catalogo_actual = cargar_catalogo_csv()
     dict_actual = {p["sku"]: p for p in catalogo_actual}
 
-    # Leer archivo del proveedor externo
-    productos_nuevos = []
     with open(proveedor_csv_path, "r", encoding="utf-8-sig") as f:
-        # Detectar columnas
         reader = csv.DictReader(f)
         headers = reader.fieldnames
         print(f"Columnas detectadas en archivo de proveedor: {headers}")
 
-        # Mapa de columnas inteligente (puedes ajustar los nombres de columnas de tus proveedores)
-        # Mapea columnas comunes como 'id', 'codigo', 'costo', 'price', 'name', 'desc' a nuestro formato
         mapping = {}
         for h in headers:
             h_lower = h.lower().strip()
@@ -128,7 +116,6 @@ def importar_proveedor(proveedor_csv_path):
             elif h_lower in ["tipo", "mercado", "inventario_tipo"]:
                 mapping["inventario_tipo"] = h
 
-        # Rellenar mapeos faltantes con valores por defecto
         required_fields = ["sku", "nombre", "precio"]
         missing = [f for f in required_fields if f not in mapping]
         if missing:
@@ -147,7 +134,6 @@ def importar_proveedor(proveedor_csv_path):
             nombre = row[mapping["nombre"]].strip()
             precio = row[mapping["precio"]].strip().replace("$", "").replace(",", "")
             
-            # Campos opcionales
             descripcion = row.get(mapping.get("descripcion", ""), "").strip()
             if not descripcion:
                 descripcion = f"Producto importado {nombre}."
@@ -176,7 +162,6 @@ def importar_proveedor(proveedor_csv_path):
                 "descripcion": descripcion
             }
 
-            # Si ya existe el SKU en el catálogo actual, actualizar campos
             if sku in dict_actual:
                 dict_actual[sku].update({
                     "nombre": nombre,
@@ -185,7 +170,6 @@ def importar_proveedor(proveedor_csv_path):
                     "descripcion": descripcion,
                     "categoria": categoria
                 })
-                # Solo actualizar imagen, tipo o frecuencia si el proveedor los incluye expresamente
                 if row.get(mapping.get("imagen", "")):
                     dict_actual[sku]["imagen"] = imagen
                 if row.get(mapping.get("inventario_tipo", "")):
@@ -197,7 +181,6 @@ def importar_proveedor(proveedor_csv_path):
 
         print(f"Resultados de importación: {added_count} productos agregados, {updated_count} productos actualizados.")
         
-        # Guardar cambios y sincronizar
         guardar_catalogo_csv(list(dict_actual.values()))
         sincronizar_htmls(list(dict_actual.values()))
 
@@ -205,7 +188,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--importar":
         importar_proveedor(sys.argv[2])
     else:
-        # Modo por defecto: Sincronizar catalog.csv con HTMLs
         print("Iniciando sincronización de catálogo desde 'catalog.csv' a páginas HTML...")
         catalogo = cargar_catalogo_csv()
         sincronizar_htmls(catalogo)
