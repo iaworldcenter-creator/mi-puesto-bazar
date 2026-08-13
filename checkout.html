@@ -1134,6 +1134,16 @@
         closePaymentModal();
     }
 
+        function clearEntireCart() {
+        if (confirm("¿Estás seguro de que deseas vaciar todo el carrito?")) {
+            localStorage.removeItem("shopping_cart");
+            if (typeof checkoutItems !== 'undefined') checkoutItems = [];
+            if (typeof renderCheckoutProducts === 'function') renderCheckoutProducts();
+            if (typeof updateSummary === 'function') updateSummary();
+            if (typeof updateHeaderDeliveryPrompt === 'function') updateHeaderDeliveryPrompt();
+        }
+    }
+
     function placeOrder() {
         const activeItems = checkoutItems.filter(item => item.quantity > 0);
         if (activeItems.length === 0) {
