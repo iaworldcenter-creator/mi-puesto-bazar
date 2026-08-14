@@ -325,6 +325,8 @@
         <button onclick="filterByDept('revistas'); filterByMarket('Segundo Mercado');" class="hover:text-amber-400 transition">📦 Segundo Mercado</button>
     </div>
 </header>
+<main id="main-content">
+
 
 <!-- MODAL DE REGISTRO DE DIRECCIÓN (GLASSMORPHISM) -->
 <div id="deliveryModal" class="fixed inset-0 z-[200] hidden flex items-center justify-center bg-slate-950/80 backdrop-blur-md px-4">
@@ -1362,6 +1364,8 @@
     <span id="cartToastDetails" class="text-xs text-slate-400 font-semibold"></span>
 </div>
 <!-- FOOTER INFORMACIÓN Y POLÍTICAS -->
+
+</main>
 <footer class="w-full bg-slate-950 text-slate-400 text-xs py-8 px-6 md:px-12 border-t border-slate-800 mt-12">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
@@ -1395,7 +1399,7 @@
 
     <!-- CHATBOT FLOTANTE -->
     <div class="fixed bottom-6 right-6 z-[9999] text-slate-100 font-sans">
-        <button id="chatbot-toggle" onclick="toggleChatbot()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:scale-105 text-white w-16 h-16 rounded-full shadow-2xl shadow-blue-600/50 flex items-center justify-center text-2xl transition-all cursor-pointer">
+        <button id="chatbot-toggle" aria-label="Abrir chat de asistencia" onclick="toggleChatbot()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:scale-105 text-white w-16 h-16 rounded-full shadow-2xl shadow-blue-600/50 flex items-center justify-center text-2xl transition-all cursor-pointer">
             <i id="chatbot-icon" class="fa-solid fa-comments"></i>
         </button>
 
