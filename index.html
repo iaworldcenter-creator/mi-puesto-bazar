@@ -110,7 +110,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="assets/img/carrusel-cabecera/foto3.png" as="image">
+    <link rel="preload" href="assets/img/carrusel-cabecera/foto3.webp" as="image">
+
+    <style>
+        @media (max-width: 768px) {
+            video { display: none !important; }
+            .mobile-video-fallback { display: block !important; }
+        }
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden">
 <!-- BARRA LATERAL FLOTANTE DE REDES SOCIALES -->
@@ -136,7 +143,7 @@
             
             <!-- Columna central: Logo circular y Marca CENTRADOS -->
             <div class="flex flex-col items-center text-center">
-                <img loading="lazy" decoding="async" src="../pc-custom-lab/assets/img/mascota_tigre.jpg" alt="Tigre Logo" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md shadow-blue-500/30 mb-2">
+                <img loading="lazy" decoding="async" src="../pc-custom-lab/assets/img/mascota_tigre.webp" alt="Tigre Logo" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md shadow-blue-500/30 mb-2">
                 <span class="text-xl sm:text-2xl font-black tracking-wider text-blue-500 block leading-tight">Puesto de Revistas &amp; Bazar</span>
                 <span class="text-xs font-mono font-bold tracking-widest text-blue-400 block mt-0.5">NFL.GDL</span>
             </div>
@@ -211,6 +218,7 @@
         <!-- Panel Izquierdo: Atención Personalizada (Video Ensamblado) -->
         <a href="https://wa.me/523337271440" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-2 md:order-1 group block cursor-pointer border-r border-slate-800/40">
             <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tech-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
+            <img loading="lazy" src="assets/img/carrusel-cabecera/Female_technician_assembling_gam_202608041518.webp" class="absolute inset-0 w-full h-full object-cover mobile-video-fallback hidden" style="display: none;" alt="Mobile cover placeholder">
                 <source src="assets/img/carrusel-cabecera/Female_technician_assembling_gam_202608041518.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
@@ -231,7 +239,7 @@
         <div class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-1 md:order-2 bg-slate-950 border-r border-slate-800/40">
             <!-- Slide 1: Revistas -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-100 z-10 transition-opacity duration-700 ease-in-out group">
-                <img loading="eager" src="assets/img/carrusel-cabecera/foto3.png" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img loading="eager" src="assets/img/carrusel-cabecera/foto3.webp" alt="Revistas, Cómics y Coleccionables" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-amber-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Lectura &amp; Entretenimiento</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Revistas, Cómics &amp; Coleccionables</h2>
@@ -244,7 +252,7 @@
 
             <!-- Slide 2: Dulces -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto2.png" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto2.webp" alt="Dulces &amp; Botanas Tradicionales" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-orange-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">¡Date un Gustito Hoy!</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Dulces &amp; Botanas Tradicionales</h2>
@@ -257,7 +265,7 @@
 
             <!-- Slide 3: Cigarros -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto4.png" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto4.webp" alt="Cigarros, Encendedores &amp; Puros" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-slate-300 font-mono text-xs uppercase font-bold tracking-widest mb-3">Calidad &amp; Variedad Garantizada</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Cigarros, Encendedores &amp; Puros</h2>
@@ -270,7 +278,7 @@
 
             <!-- Slide 4: Electrónica -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto1.png" alt="Electrónica &amp; Tecnología" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto1.webp" alt="Electrónica &amp; Tecnología" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-indigo-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Tecnología a tu Alcance</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Electrónica &amp; Tecnología</h2>
@@ -283,7 +291,7 @@
 
             <!-- Slide 5: Ofertas del Día -->
             <div class="bazar-center-slide absolute inset-0 w-full h-full opacity-0 z-0 transition-opacity duration-700 ease-in-out group">
-                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto1.png" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
+                <img loading="lazy" decoding="async" src="assets/img/carrusel-cabecera/foto1.webp" alt="Ofertas del Día &amp; Envíos Uber" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-center items-center text-center p-6 md:p-12 text-white">
                     <span class="text-red-400 font-mono text-xs uppercase font-bold tracking-widest mb-3">Promociones Exclusivas</span>
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 max-w-2xl drop-shadow-md leading-tight">Ofertas del Día &amp; Envíos Uber</h2>
@@ -315,6 +323,7 @@
         <!-- Panel Derecho: Creado con Google Gemini (Tigre Ejecutivo + Esfera Gemini Link) -->
         <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="relative overflow-hidden w-full h-[380px] md:h-[600px] order-3 md:order-3 group block cursor-pointer">
             <video autoplay muted playsinline class="absolute inset-0 w-full h-full object-cover object-tiger-bazar transition-transform duration-[1200ms] ease-out group-hover:scale-105 pointer-events-none">
+            <img loading="lazy" src="assets/img/carrusel-cabecera/Tiger_walking_in_warehouse_202608072327.webp" class="absolute inset-0 w-full h-full object-cover mobile-video-fallback hidden" style="display: none;" alt="Mobile cover placeholder">
                 <source src="assets/img/carrusel-cabecera/Tiger_walking_in_warehouse_202608072327.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent flex flex-col justify-end p-6 md:p-8 text-white">
