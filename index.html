@@ -222,6 +222,7 @@
 <form class="flex items-center gap-2 p-2.5 rounded-2xl bg-white w-full neon-search-frame" onsubmit="return false;" role="search">
 <label class="sr-only" for="siteSearch">¿Qué deseas buscar hoy?</label>
 <input aria-label="Buscar productos en el catálogo" autocomplete="off" class="flex-1 bg-transparent border-0 outline-none text-slate-900 font-bold text-sm px-3 placeholder-slate-400" id="siteSearch" name="q" placeholder="¿Qué deseas buscar hoy? Escribe aquí..." type="text"/>
+<button type="button" onclick="startVoiceSearch()" id="voice-search-btn" class="text-slate-400 hover:text-amber-500 p-2.5 flex items-center justify-center transition mr-1" aria-label="Dictar búsqueda"><i class="fa-solid fa-microphone text-base"></i></button>
 <button aria-label="Buscar" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-6 py-3 rounded-xl text-xs transition shadow-md hover:scale-103 shrink-0" type="submit">Buscar</button>
 </form>
 </div>
@@ -391,25 +392,49 @@
     <!-- Col 1: Margen izquierdo vacío -->
     <div class="hidden lg:block col-span-1"></div>
 
-    <!-- Col 2-3: Sidebar de Navegación y Filtros -->
-    <aside class="col-span-8 lg:col-span-1 w-full bg-slate-950/80 border border-slate-800 rounded-2xl p-4 lg:p-5 shadow-xl sticky lg:top-24 top-16 z-30 self-start flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-4 lg:gap-6 whitespace-nowrap lg:whitespace-normal scrollbar-none items-center lg:items-stretch">
-      <h3 class="text-base font-black text-white hidden lg:flex items-center gap-2">
+    <!-- Col 2-3: Sidebar de Navegación y Filtros (Categorías Bazar & Subsecciones) -->
+    <aside class="col-span-8 lg:col-span-1 w-full bg-slate-950/80 border border-slate-800 rounded-2xl p-4 lg:p-5 shadow-xl sticky lg:top-24 top-16 z-30 self-start flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-4 lg:gap-6 scrollbar-none items-center lg:items-stretch whitespace-normal">
+      <h3 class="text-base font-black text-white hidden lg:flex items-center gap-2 border-b border-slate-800/40 pb-2">
         <i class="fa-solid fa-filter text-amber-500"></i> Navegación y Filtros
       </h3>
       
-      <div class="flex flex-row lg:flex-col gap-4 lg:gap-6 items-center lg:items-stretch shrink-0 w-full lg:w-auto justify-start lg:justify-normal">
-          <div class="flex flex-row lg:flex-col gap-2 lg:gap-2 items-center lg:items-stretch shrink-0">
-              <h4 class="text-xs lg:text-sm font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-store"></i> <span class="hidden lg:inline">Categorías</span></h4>
-              <ul class="flex flex-row lg:flex-col gap-2 lg:space-y-1.5 lg:gap-0 pl-0 lg:pl-2 shrink-0">
-                  <li><a href="#productos" onclick="filterByCategory('todos', event)" class="text-xs text-blue-400 hover:text-blue-300 transition cursor-pointer flex items-center gap-1.5 font-bold bg-slate-900/60 lg:bg-transparent px-2.5 py-1 rounded lg:p-0 border border-slate-800 lg:border-none"><i class="hidden lg:inline fa-solid fa-border-all text-[8px]"></i> Ver todo</a></li>
-                  <li><a href="#productos" onclick="filterByCategory('gadgets', event)" class="text-xs text-slate-300 hover:text-amber-500 transition cursor-pointer flex items-center gap-1.5 bg-slate-900/60 lg:bg-transparent px-2.5 py-1 rounded lg:p-0 border border-slate-800 lg:border-none"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Electrónica &amp; Gadgets</a></li>
-                  <li><a href="#productos" onclick="filterByCategory('revistas', event)" class="text-xs text-slate-300 hover:text-amber-500 transition cursor-pointer flex items-center gap-1.5 bg-slate-900/60 lg:bg-transparent px-2.5 py-1 rounded lg:p-0 border border-slate-800 lg:border-none"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Revistas y Periódicos</a></li>
-                  <li><a href="#productos" onclick="filterByCategory('dulces', event)" class="text-xs text-slate-300 hover:text-amber-500 transition cursor-pointer flex items-center gap-1.5 bg-slate-900/60 lg:bg-transparent px-2.5 py-1 rounded lg:p-0 border border-slate-800 lg:border-none"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Dulces y Botanas</a></li>
-                  <li><a href="#productos" onclick="filterByCategory('cigarros', event)" class="text-xs text-slate-300 hover:text-amber-500 transition cursor-pointer flex items-center gap-1.5 bg-slate-900/60 lg:bg-transparent px-2.5 py-1 rounded lg:p-0 border border-slate-800 lg:border-none"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Cigarros y Bazar</a></li>
+      <div class="flex flex-row lg:flex-col gap-4 lg:gap-6 items-center lg:items-stretch w-full lg:w-auto">
+          <!-- Electrónica & Gadgets -->
+          <div class="flex flex-col gap-1.5 shrink-0">
+              <h4 class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-laptop"></i> <span class="hidden lg:inline">Electrónica</span></h4>
+              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1 lg:gap-0 pl-0 lg:pl-2">
+                  <li><button onclick="filterBySub('gadgets', 'todos')" class="text-left text-xs text-slate-300 hover:text-blue-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Ver todo</button></li>
+                  <li><button onclick="filterBySub('gadgets', 'bocinas')" class="text-left text-xs text-slate-300 hover:text-blue-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Bocinas</button></li>
+                  <li><button onclick="filterBySub('gadgets', 'cables')" class="text-left text-xs text-slate-300 hover:text-blue-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Cables</button></li>
               </ul>
           </div>
-      </div>
-    </aside>
+          
+          <!-- Revistas y Periódicos -->
+          <div class="flex flex-col gap-1.5 shrink-0">
+              <h4 class="text-xs font-bold text-pink-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-book-open"></i> <span class="hidden lg:inline">Revistas</span></h4>
+              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1 lg:gap-0 pl-0 lg:pl-2">
+                  <li><button onclick="filterBySub('revistas', 'todos')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Ver todo</button></li>
+                  <li><button onclick="filterBySub('revistas', 'primer')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> 1er Mercado</button></li>
+                  <li><button onclick="filterBySub('revistas', 'segundo')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> 2do Mercado</button></li>
+              </ul>
+          </div>
+          
+          <!-- Dulcería y Botanas -->
+          <div class="flex flex-col gap-1.5 shrink-0">
+              <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-candy-cane"></i> <span class="hidden lg:inline">Dulcería</span></h4>
+              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1 lg:gap-0 pl-0 lg:pl-2">
+                  <li><button onclick="filterBySub('dulces', 'todos')" class="text-left text-xs text-slate-300 hover:text-emerald-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Dulces &amp; Botanas</button></li>
+              </ul>
+          </div>
+
+          <!-- Cigarros y Bazar -->
+          <div class="flex flex-col gap-1.5 shrink-0">
+              <h4 class="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-smoking"></i> <span class="hidden lg:inline">Cigarros</span></h4>
+              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1 lg:gap-0 pl-0 lg:pl-2">
+                  <li><button onclick="filterBySub('cigarros', 'todos')" class="text-left text-xs text-slate-300 hover:text-purple-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Cigarros &amp; Bazar</button></li>
+              </ul>
+          </div>
+      </div></aside>
 
     <!-- Col 4-8: Cuadrícula de Productos -->
     <div class="col-span-8 lg:col-span-5">
@@ -716,6 +741,7 @@
 </div>
 <div class="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
 <input aria-label="Escribe aquí tu proyecto o duda..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500" id="chat-input" onkeypress="handleChatKeyPress(event)" placeholder="Escribe aquí tu proyecto o duda..." type="text"/>
+<button type="button" onclick="startVoiceChat()" id="voice-chat-btn" class="text-slate-400 hover:text-blue-500 p-2.5 flex items-center justify-center transition" aria-label="Dictar mensaje"><i class="fa-solid fa-microphone text-base"></i></button>
 <button aria-label="Botón de acción interactiva" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-3 rounded-xl text-sm transition cursor-pointer" onclick="enviarMensajeChatbot()"><i class="fa-solid fa-paper-plane"></i></button>
 </div>
 </div>
