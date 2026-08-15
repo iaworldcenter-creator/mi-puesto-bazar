@@ -392,12 +392,19 @@
     <!-- Col 1: Margen izquierdo vacío -->
     <div class="hidden lg:block col-span-1"></div>
 
-    <!-- Col 2-3: Sidebar de Navegación y Filtros (Categorías Bazar & Subsecciones) -->
-    <aside class="col-span-8 lg:col-span-1 w-full bg-slate-950/80 border border-slate-800 rounded-2xl p-4 lg:p-5 shadow-xl sticky lg:top-24 top-16 z-30 self-start flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-4 lg:gap-6 scrollbar-none items-center lg:items-stretch whitespace-normal">
-      <h3 class="text-base font-black text-white hidden lg:flex items-center gap-2 border-b border-slate-800/40 pb-2">
-        <i class="fa-solid fa-filter text-amber-500"></i> Navegación y Filtros
-      </h3>
+    <!-- Col 2-3: Sidebar de Navegación, Filtros y Descripción (8 Columnas Layout) -->
+    <aside class="col-span-8 lg:col-span-1 w-full bg-slate-950/90 border border-slate-800 rounded-2xl p-4 lg:p-5 shadow-xl sticky lg:top-24 top-16 z-30 self-start flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-4 lg:gap-6 scrollbar-none items-center lg:items-stretch whitespace-normal">
+      <!-- Encabezado del Sidebar (Visible en Desktop) -->
+      <div class="hidden lg:block border-b border-slate-800 pb-3">
+        <h3 class="text-sm font-black text-white flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-amber-500"></i> Descripción y Áreas
+        </h3>
+        <p class="text-[9px] text-slate-500 mt-1 leading-relaxed">
+          Nuestra selección de revistas físicas, ediciones digitales y áreas del bazar.
+        </p>
+      </div>
       
+      <!-- Contenedor general de categorías -->
       <div class="flex flex-row lg:flex-col gap-4 lg:gap-6 items-center lg:items-stretch w-full lg:w-auto">
           <!-- Electrónica & Gadgets -->
           <div class="flex flex-col gap-1.5 shrink-0">
@@ -409,13 +416,34 @@
               </ul>
           </div>
           
-          <!-- Revistas y Periódicos -->
+          <!-- Revistas y Periódicos (Con Descripción en Desktop) -->
           <div class="flex flex-col gap-1.5 shrink-0">
               <h4 class="text-xs font-bold text-pink-400 uppercase tracking-wider flex items-center gap-1.5"><i class="fa-solid fa-book-open"></i> <span class="hidden lg:inline">Revistas</span></h4>
-              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1 lg:gap-0 pl-0 lg:pl-2">
-                  <li><button onclick="filterBySub('revistas', 'todos')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Ver todo</button></li>
-                  <li><button onclick="filterBySub('revistas', 'primer')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> 1er Mercado</button></li>
-                  <li><button onclick="filterBySub('revistas', 'segundo')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> 2do Mercado</button></li>
+              <p class="hidden lg:block text-[9px] text-slate-500 leading-relaxed mb-1">
+                Ediciones de divulgación científica, crecimiento personal y títulos familiares:
+              </p>
+              <ul class="flex flex-row lg:flex-col gap-1.5 lg:space-y-1.5 lg:gap-0 pl-0 lg:pl-2">
+                  <li><button onclick="filterBySub('revistas', 'todos')" class="text-left text-xs text-slate-300 hover:text-pink-400 transition cursor-pointer flex items-center gap-1.5 font-bold"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Ver todas</button></li>
+                  <li>
+                    <button onclick="filterBySearch('Muy Interesante')" class="text-left text-xs text-slate-400 hover:text-pink-400 transition flex items-center gap-1.5">
+                      <i class="hidden lg:inline fa-solid fa-circle text-[4px] text-pink-500"></i> Muy Interesante
+                    </button>
+                  </li>
+                  <li>
+                    <button onclick="filterBySearch('National Geographic')" class="text-left text-xs text-slate-400 hover:text-pink-400 transition flex items-center gap-1.5">
+                      <i class="hidden lg:inline fa-solid fa-circle text-[4px] text-pink-500"></i> National Geographic
+                    </button>
+                  </li>
+                  <li>
+                    <button onclick="filterBySearch('Padres e Hijos')" class="text-left text-xs text-slate-400 hover:text-pink-400 transition flex items-center gap-1.5">
+                      <i class="hidden lg:inline fa-solid fa-circle text-[4px] text-pink-500"></i> Padres e Hijos
+                    </button>
+                  </li>
+                  <li class="hidden lg:block">
+                    <a href="https://iaworldcenter-creator.github.io/kiosco-digital/" class="text-left text-xs text-slate-400 hover:text-blue-400 transition flex items-center gap-1.5">
+                      <i class="fa-solid fa-mobile-screen-button text-[8px] text-blue-500"></i> Revistas Digitales 📱
+                    </a>
+                  </li>
               </ul>
           </div>
           
@@ -434,7 +462,8 @@
                   <li><button onclick="filterBySub('cigarros', 'todos')" class="text-left text-xs text-slate-300 hover:text-purple-400 transition cursor-pointer flex items-center gap-1.5"><i class="hidden lg:inline fa-solid fa-chevron-right text-[8px] text-slate-500"></i> Cigarros &amp; Bazar</button></li>
               </ul>
           </div>
-      </div></aside>
+      </div>
+    </aside>
 
     <!-- Col 4-8: Cuadrícula de Productos -->
     <div class="col-span-8 lg:col-span-5">
