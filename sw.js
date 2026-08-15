@@ -1,5 +1,6 @@
 const CACHE_NAME = 'mi-puesto-bazar-cache-v1.0.2';
 const ASSETS_TO_CACHE = [
+  './index.html',
   './ofertas.html',
   './assets/css/tailwind-built.css?v=1.0.2',
   './assets/css/fontawesome-all.min.css?v=1.0.2'
