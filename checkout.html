@@ -3093,7 +3093,7 @@
     }
 
     function initCheckout() {
-        const storedCart = sessionStorage.getItem("shopping_cart");
+        const storedCart = localStorage.getItem("ecosystem_global_cart");
         let cart = storedCart ? JSON.parse(storedCart) : [];
 
         const sku = getQueryParam("sku");
@@ -3106,7 +3106,7 @@
                 } else {
                     cart.push({...prod, quantity: 1});
                 }
-                sessionStorage.setItem("shopping_cart", JSON.stringify(cart));
+                localStorage.setItem("ecosystem_global_cart", JSON.stringify(cart));
             }
             window.history.replaceState({}, document.title, window.location.pathname);
         }
@@ -3126,7 +3126,7 @@
             
             // Sync active items (qty > 0) back to localStorage
             const activeItems = checkoutItems.filter(p => p.quantity > 0);
-            sessionStorage.setItem("shopping_cart", JSON.stringify(activeItems));
+            localStorage.setItem("ecosystem_global_cart", JSON.stringify(activeItems));
             
             renderCheckoutProducts();
             updateSummary();
@@ -3508,7 +3508,7 @@
 
         function clearEntireCart() {
         if (confirm("¿Estás seguro de que deseas vaciar todo el carrito?")) {
-            sessionStorage.removeItem("shopping_cart");
+            localStorage.removeItem("ecosystem_global_cart");
             if (typeof checkoutItems !== 'undefined') checkoutItems = [];
             if (typeof renderCheckoutProducts === 'function') renderCheckoutProducts();
             if (typeof updateSummary === 'function') updateSummary();
@@ -3549,7 +3549,7 @@
         const waUrl = `https://wa.me/523337271440?text=Hola,%20quiero%20confirmar%20mi%20pedido%20de:%20${encodeURIComponent(productsText)}.%20Monto%20total%20con%205%25%20cashback%20aplicado:%20$${total.toFixed(2)}%20MXN.%20Entregar%20en:%20${encodeURIComponent(data.street)},%20Col.%20${encodeURIComponent(data.colonia)}.%20Contacto:%20${encodeURIComponent(data.name)}%20(Tel:%20${encodeURIComponent(data.phone)}%20|%20Email:%20${encodeURIComponent(data.email)}).`;
 
         window.open(waUrl, "_blank");
-        sessionStorage.removeItem("shopping_cart");
+        localStorage.removeItem("ecosystem_global_cart");
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -3687,3 +3687,4 @@
 </div>
 </body>
 </html>
+

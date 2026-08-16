@@ -51,7 +51,7 @@ try {
                 description: "Obtiene los productos actualmente en el carrito de compras",
                 inputSchema: { type: "object", properties: {} },
                 execute: async () => {
-                    const cart = localStorage.getItem("cart") || sessionStorage.getItem("cart") || "[]";
+                    const cart = localStorage.getItem("ecosystem_global_cart") || "[]";
                     return { success: true, cart: JSON.parse(cart) };
                 }
             });
@@ -145,7 +145,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <link rel="preload" href="assets/css/tailwind-built.css?v=1.0.5" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript><link href="assets/css/tailwind-built.css?v=1.0.5" rel="stylesheet" /></noscript>
 <script>    function getCart() {
-        const stored = sessionStorage.getItem("shopping_cart");
+        const stored = localStorage.getItem("ecosystem_global_cart");
         return stored ? JSON.parse(stored) : [];
     }
     function saveCart(cart) {
@@ -238,7 +238,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         if (subtotalDisplay) subtotalDisplay.innerText = `$${subtotal.toFixed(2)} MXN`;
     }
 
-        sessionStorage.setItem("shopping_cart", JSON.stringify(cart));
+        localStorage.setItem("ecosystem_global_cart", JSON.stringify(cart));
         updateCartBadge();
     }
     function updateCartBadge() {
@@ -4095,7 +4095,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         }
     }
     function getCart() {
-        const stored = sessionStorage.getItem("shopping_cart");
+        const stored = localStorage.getItem("ecosystem_global_cart");
         return stored ? JSON.parse(stored) : [];
     }
     function saveCart(cart) {
@@ -4188,7 +4188,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         if (subtotalDisplay) subtotalDisplay.innerText = `$${subtotal.toFixed(2)} MXN`;
     }
 
-        sessionStorage.setItem("shopping_cart", JSON.stringify(cart));
+        localStorage.setItem("ecosystem_global_cart", JSON.stringify(cart));
         updateCartBadge();
     }
     function updateCartBadge() {
@@ -4382,3 +4382,4 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 
 </body>
 </html>
+

@@ -35,7 +35,7 @@
 </style>
     <link href="../../assets/css/tailwind-built.css" rel="stylesheet" />
 <script>    function getCart() {
-        const stored = sessionStorage.getItem("shopping_cart");
+        const stored = localStorage.getItem("ecosystem_global_cart");
         return stored ? JSON.parse(stored) : [];
     }
     function saveCart(cart) {
@@ -128,7 +128,7 @@
         if (subtotalDisplay) subtotalDisplay.innerText = `$${subtotal.toFixed(2)} MXN`;
     }
 
-        sessionStorage.setItem("shopping_cart", JSON.stringify(cart));
+        localStorage.setItem("ecosystem_global_cart", JSON.stringify(cart));
         updateCartBadge();
     }
     function updateCartBadge() {
@@ -1218,7 +1218,7 @@
         }
     }
     function getCart() {
-        const stored = sessionStorage.getItem("shopping_cart");
+        const stored = localStorage.getItem("ecosystem_global_cart");
         return stored ? JSON.parse(stored) : [];
     }
     function saveCart(cart) {
@@ -1311,7 +1311,7 @@
         if (subtotalDisplay) subtotalDisplay.innerText = `$${subtotal.toFixed(2)} MXN`;
     }
 
-        sessionStorage.setItem("shopping_cart", JSON.stringify(cart));
+        localStorage.setItem("ecosystem_global_cart", JSON.stringify(cart));
         updateCartBadge();
     }
     function updateCartBadge() {
@@ -1552,3 +1552,4 @@
 
 </body>
 </html>
+
