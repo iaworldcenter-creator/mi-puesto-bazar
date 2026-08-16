@@ -1,9 +1,8 @@
-const CACHE_NAME = 'mi-puesto-bazar-cache-v1.0.6';
+const CACHE_NAME = 'mi-puesto-bazar-cache-v1.0.9';
 const ASSETS_TO_CACHE = [
   './index.html',
-  './ofertas.html',
-  './assets/css/tailwind-built.css?v=1.0.3',
-  './assets/css/fontawesome-all.min.css?v=1.0.3'
+  './assets/css/tailwind-built.css?v=1.0.9',
+  './assets/css/fontawesome-all.min.css?v=1.0.9'
 ];
 
 self.addEventListener('install', (event) => {
@@ -30,42 +29,38 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  if (url.origin === self.location.origin || url.href.includes('cdnjs.cloudflare.com')) {
-    // ESTRATEGIA NETWORK-FIRST PARA HTML Y CSS (Para ver los cambios al instante)
-    if (event.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('.css')) {
-      event.respondWith(
-        fetch(event.request)
-          .then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              const cacheCopy = networkResponse.clone();
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, cacheCopy);
-              });
-            }
-            return networkResponse;
-          })
-          .catch(() => {
-            return caches.match(event.request);
-          })
-      );
-    } else {
-      // ESTRATEGIA CACHE-FIRST PARA IMAGENES, FUENTES Y OTROS ESTÁTICOS
-      event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
+  
+  // Use Network-First for HTML/Navigations to prevent user stuck on old versions
+  if (event.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const cacheCopy = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cacheCopy));
           }
-          return fetch(event.request).then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              const cacheCopy = networkResponse.clone();
-              caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, cacheCopy);
-              });
-            }
-            return networkResponse;
-          });
+          return networkResponse;
         })
-      );
-    }
+        .catch(() => caches.match(event.request))
+    );
+    return;
   }
+  
+  // Cache-First for other assets (CSS, FontAwesome, Images)
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const cacheCopy = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, cacheCopy);
+          });
+        }
+        return networkResponse;
+      });
+    })
+  );
 });
