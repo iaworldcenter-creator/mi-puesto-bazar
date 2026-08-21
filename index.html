@@ -32,6 +32,21 @@ if ('serviceWorker' in navigator) {
 <meta content="8K2sKSVop9TiESQupe6QkSBIJjwXpli847qEAWCq87I" name="google-site-verification">
 <title>Mi Puesto Periódicos y Bazar | Venta y Catálogo en Guadalajara</title>
 <style>
+
+/* BANDA MARQUEE CONTINUA UNIVERSAL */
+@keyframes marqueeContinuous {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+.marquee-track {
+    display: inline-flex;
+    width: max-content;
+    animation: marqueeContinuous 35s linear infinite;
+}
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
         :root { --fondo: #020617; --azul: #3b82f6; --azul-vivo: #60a5fa; --naranja: #f59e0b; --dorado: #eab308; --texto: #f1f5f9; --crema: #0f172a; }
         * { box-sizing: border-box; }
         body { margin: 0; background: var(--fondo); color: var(--texto); font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
@@ -137,8 +152,8 @@ if ('serviceWorker' in navigator) {
     <link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" crossorigin />
     <!-- Carga asíncrona de FontAwesome local purgado con font-display: swap -->
-    <link rel="preload" href="assets/css/fontawesome-all.min.css?v=1.0.9" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css?v=1.0.9" /></noscript>
+    <link rel="preload" href="assets/css/fontawesome-all.min.css?v=1.1.0" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css?v=1.1.0" /></noscript>
 
 <link as="image" href="assets/img/carrusel-cabecera/foto3.webp" rel="preload"/>
 <style>
@@ -261,6 +276,34 @@ if ('serviceWorker' in navigator) {
         </div>
     </div>
 </header>
+<!-- BANDA PROMOCIONAL MARQUEE UNIVERSAL -->
+<div class="w-full bg-[#f0c14b] border-b border-[#ddb347] text-slate-950 py-2 overflow-hidden">
+    <div class="marquee-track flex gap-8 items-center text-xs font-black uppercase tracking-wider">
+        <span class="flex items-center gap-1.5">🚚 ¡ENVÍO GRATIS en compras a partir de $499!</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">💳 5% DE CASHBACK acumulable con registro</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">📦 PRECIO DE MAYOREO: 15% de descuento directo al llevar 3+</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🔔 CONDICIÓN: Sin registro no hay cashback</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🏬 BOUTIQUES ESPECIALIZADAS, UN SOLO CARRITO</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🔒 Pagos con tarjeta y transferencia</span>
+        <!-- Bucle continuo -->
+        <span class="flex items-center gap-1.5">🚚 ¡ENVÍO GRATIS en compras a partir de $499!</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">💳 5% DE CASHBACK acumulable con registro</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">📦 PRECIO DE MAYOREO: 15% de descuento directo al llevar 3+</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🔔 CONDICIÓN: Sin registro no hay cashback</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🏬 BOUTIQUES ESPECIALIZADAS, UN SOLO CARRITO</span>
+        <span class="text-slate-900 font-bold">•</span>
+        <span class="flex items-center gap-1.5">🔒 Pagos con tarjeta y transferencia</span>
+    </div>
+</div>
 
 <!-- BANDA PROMOCIONAL MARQUEE -->
 <div class="w-full bg-[#f0c14b] border-b border-[#ddb347] text-slate-950 py-2.5 overflow-hidden relative z-50 select-none shadow-sm">
