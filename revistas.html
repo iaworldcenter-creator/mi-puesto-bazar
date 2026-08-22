@@ -6,6 +6,19 @@
 <meta content="0; url=https://iaworldcenter-creator.github.io/kiosco-digital/" http-equiv="refresh"/>
 <title>Mi Puesto Periódicos y Bazar | Venta y Catálogo en Guadalajara</title>
 <script>
+// Global Error & Promise Rejection Guard (Safe Headless & Mobile Execution)
+window.addEventListener('error', function(e) {
+    if (e && e.message && (e.message.includes('play()') || e.message.includes('quicklink') || e.message.includes('ResizeObserver') || e.message.includes('SpeechRecognition'))) {
+        e.preventDefault();
+        return true;
+    }
+}, true);
+window.addEventListener('unhandledrejection', function(e) {
+    if (e && e.reason && (e.reason.name === 'NotAllowedError' || e.reason.name === 'AbortError' || e.reason.name === 'SecurityError')) {
+        e.preventDefault();
+    }
+});
+
         window.location.href = "https://iaworldcenter-creator.github.io/kiosco-digital/";
     </script>
 <style>

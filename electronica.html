@@ -9,6 +9,19 @@
 <meta content="Bienvenido a Mi Puesto Periódicos y Bazar. Compra en línea con entrega local express en Guadalajara Centro. Pedro Moreno 501 A." name="description"/>
 <link href="assets/css/tailwind-built.css" rel="stylesheet" />
 <script>
+// Global Error & Promise Rejection Guard (Safe Headless & Mobile Execution)
+window.addEventListener('error', function(e) {
+    if (e && e.message && (e.message.includes('play()') || e.message.includes('quicklink') || e.message.includes('ResizeObserver') || e.message.includes('SpeechRecognition'))) {
+        e.preventDefault();
+        return true;
+    }
+}, true);
+window.addEventListener('unhandledrejection', function(e) {
+    if (e && e.reason && (e.reason.name === 'NotAllowedError' || e.reason.name === 'AbortError' || e.reason.name === 'SecurityError')) {
+        e.preventDefault();
+    }
+});
+
 
 
     function updateHeaderDeliveryPrompt() {
@@ -1269,7 +1282,7 @@
 <!-- FOOTER -->
 
 </main>
-<footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-slate-500 text-sm font-mono">
+<footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-slate-400 text-sm font-mono">
 <!-- Íconos de contacto móvil -->
 <div class="md:hidden flex justify-center gap-6 mb-6">
 <a aria-label="Contactar al soporte de ventas por WhatsApp" class="w-12 h-12 rounded-full bg-emerald-600/10 border border-emerald-500/30 text-emerald-500 flex items-center justify-center text-2xl shadow-lg transition-transform hover:scale-105" href="https://wa.me/523337271440" rel="noopener noreferrer" target="_blank" title="WhatsApp">
@@ -4198,7 +4211,7 @@
         container.innerHTML = "";
         
         if (cart.length === 0) {
-            container.innerHTML = `<div class="text-center py-12 text-slate-500"><i class="fa-solid fa-cart-flatbed text-4xl mb-3 block opacity-40"></i><p class="text-xs font-semibold">Tu carrito está vacío.</p></div>`;
+            container.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fa-solid fa-cart-flatbed text-4xl mb-3 block opacity-40"></i><p class="text-xs font-semibold">Tu carrito está vacío.</p></div>`;
             if (subtotalDisplay) subtotalDisplay.innerText = "$0.00 MXN";
             return;
         }
@@ -4214,7 +4227,7 @@
             const isZero = qty === 0;
             const div = document.createElement("div");
             if (isZero) {
-                div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-900 rounded-2xl p-3 shadow-md opacity-40 text-slate-500";
+                div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-900 rounded-2xl p-3 shadow-md opacity-40 text-slate-400";
             } else {
                 div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-800/80 rounded-2xl p-3 shadow-md";
             }
@@ -4225,11 +4238,11 @@
                 </div>
                 <div class="flex-1 flex flex-col justify-between min-h-[50px]">
                     <div class="flex justify-between items-start gap-1">
-                        <h4 class="text-[11px] font-black ${isZero ? 'text-slate-500' : 'text-white'} leading-tight line-clamp-2">${item.nombre}</h4>
-                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-500 hover:text-red-400 text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                        <h4 class="text-[11px] font-black ${isZero ? 'text-slate-400' : 'text-white'} leading-tight line-clamp-2">${item.nombre}</h4>
+                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-400 hover:text-red-400 text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                     <div class="flex justify-between items-center mt-1">
-                        <span class="text-xs font-black ${isZero ? 'text-slate-500 line-through' : 'text-amber-400'}">$${price.toFixed(2)}</span>
+                        <span class="text-xs font-black ${isZero ? 'text-slate-400 line-through' : 'text-amber-400'}">$${price.toFixed(2)}</span>
                         <div class="flex items-center gap-2.5 bg-slate-900 border border-slate-800 rounded-lg px-2 py-0.5">
                             <button onclick="changeQuantity('${item.sku}', -1)" class="text-[10px] text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-minus"></i></button>
                             <span class="text-[11px] font-mono font-bold w-3 text-center ${isZero ? 'text-red-400 font-black' : 'text-slate-300'}">${qty}</span>
@@ -4268,7 +4281,7 @@
 
                 const priceBlock = hasDiscount ? `
                     <div class="flex items-center gap-2 mt-1">
-                        <span class="line-through text-slate-500 text-[10px]">$${Math.floor(p.precio_original)}</span>
+                        <span class="line-through text-slate-400 text-[10px]">$${Math.floor(p.precio_original)}</span>
                         <span class="text-sm font-black text-white">$${Math.floor(p.precio)} MXN</span>
                     </div>
                 ` : `
@@ -4285,7 +4298,7 @@
                         </div>
                         <div class="flex flex-col gap-1 mt-1">
                             <div class="flex justify-between items-center gap-1">
-                                <span class="text-[8px] font-mono font-bold text-slate-500">${p.sku}</span>
+                                <span class="text-[8px] font-mono font-bold text-slate-400">${p.sku}</span>
                                 <span class="text-[8px] font-bold px-1.5 py-0.2 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">PC Custom Lab</span>
                             </div>
                             <h4 class="text-xs font-black text-white leading-tight line-clamp-2 min-h-[32px] hover:text-blue-400 transition">${p.nombre}</h4>
