@@ -2,6 +2,7 @@
 
 <html lang="es">
 <head>
+<meta name="google-site-verification" content="BwSy5nNuFFrHJUtxe189nJtPxM4h5QY-SxK1V8wqYDE" />
 <script>
 // Global Error & Promise Rejection Guard (Safe Headless & Mobile Execution)
 window.addEventListener('error', function(e) {
@@ -217,7 +218,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         container.innerHTML = "";
         
         if (cart.length === 0) {
-            container.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fa-solid fa-cart-flatbed text-4xl mb-3 block opacity-40"></i><p class="text-xs font-semibold">Tu carrito está vacío.</p></div>`;
+            container.innerHTML = `<div class="text-center py-12 text-slate-300"><i class="fa-solid fa-cart-flatbed text-4xl mb-3 block opacity-40"></i><p class="text-xs font-semibold">Tu carrito está vacío.</p></div>`;
             if (subtotalDisplay) subtotalDisplay.innerText = "$0.00 MXN";
             return;
         }
@@ -233,7 +234,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
             const isZero = qty === 0;
             const div = document.createElement("div");
             if (isZero) {
-                div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-900 rounded-2xl p-3 shadow-md opacity-40 text-slate-400";
+                div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-900 rounded-2xl p-3 shadow-md opacity-40 text-slate-300";
             } else {
                 div.className = "flex items-center gap-3.5 bg-slate-950 border border-slate-800/80 rounded-2xl p-3 shadow-md";
             }
@@ -244,15 +245,15 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
                 </div>
                 <div class="flex-1 flex flex-col justify-between min-h-[50px]">
                     <div class="flex justify-between items-start gap-1">
-                        <h4 class="text-[11px] font-black ${isZero ? 'text-slate-400' : 'text-white'} leading-tight line-clamp-2">${item.nombre}</h4>
-                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-400 hover:text-red-400 text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                        <h4 class="text-[11px] font-black ${isZero ? 'text-slate-300' : 'text-white'} leading-tight line-clamp-2">${item.nombre}</h4>
+                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-300 hover:text-red-400 text-xs cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                     <div class="flex justify-between items-center mt-1">
-                        <span class="text-xs font-black ${isZero ? 'text-slate-400 line-through' : 'text-amber-400'}">$${price.toFixed(2)}</span>
+                        <span class="text-xs font-black ${isZero ? 'text-slate-300 line-through' : 'text-amber-400'}">$${price.toFixed(2)}</span>
                         <div class="flex items-center gap-2.5 bg-slate-900 border border-slate-800 rounded-lg px-2 py-0.5">
-                            <button onclick="changeQuantity('${item.sku}', -1)" class="text-[10px] text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-minus"></i></button>
+                            <button onclick="changeQuantity('${item.sku}', -1)" class="text-[10px] text-slate-300 hover:text-white cursor-pointer"><i class="fa-solid fa-minus"></i></button>
                             <span class="text-[11px] font-mono font-bold w-3 text-center ${isZero ? 'text-red-400 font-black' : 'text-slate-300'}">${qty}</span>
-                            <button onclick="changeQuantity('${item.sku}', 1)" class="text-[10px] text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-plus"></i></button>
+                            <button onclick="changeQuantity('${item.sku}', 1)" class="text-[10px] text-slate-300 hover:text-white cursor-pointer"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -374,7 +375,8 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
     "postalCode": "44100",
     "addressCountry": "MX"
   }
-}</script></head>
+}</script><style>body{font-display:swap;}*{font-display:swap;}</style>
+</head>
 <body><h1 class="sr-only">Mi Puesto Periódicos y Bazar</h1>
 <!-- FRANJA NEGRA DE NAVEGACIÓN SUPERIOR AMPLIADA (ECOSISTEMA & AI CO-PILOT) -->
 <!-- FRANJA NEGRA DE NAVEGACIÓN SUPERIOR AMPLIADA (ECOSISTEMA & AI CO-PILOT) -->
@@ -450,17 +452,17 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         <div>
             <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-6">
                 <h3 class="text-base font-black text-white flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-cyan-400"></i> Tu Carrito de Compras</h3>
-                <button class="text-2xl text-slate-400 hover:text-white cursor-pointer" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+                <button class="text-2xl text-slate-300 hover:text-white cursor-pointer" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
             <!-- Parte superior: Registro de Domicilio y Formas de Pago -->
             <div class="bg-slate-950/40 border border-slate-800 rounded-xl p-4 mb-4 flex flex-col gap-2.5">
                 <div class="flex justify-between items-center text-xs">
-                    <span class="text-slate-400 font-bold">Registro de Entrega: <span id="drawer-delivery-status" class="text-amber-500">Pendiente</span></span>
+                    <span class="text-slate-300 font-bold">Registro de Entrega: <span id="drawer-delivery-status" class="text-amber-500">Pendiente</span></span>
                     <button onclick="openDeliveryModal()" class="text-cyan-400 hover:underline font-bold focus:outline-none">(Editar)</button>
                 </div>
                 <div class="flex justify-between items-center text-xs">
-                    <span class="text-slate-400 font-bold">Forma de Pago: <span id="drawer-payment-status" class="text-amber-500">No seleccionada</span></span>
+                    <span class="text-slate-300 font-bold">Forma de Pago: <span id="drawer-payment-status" class="text-amber-500">No seleccionada</span></span>
                     <button onclick="openPaymentModal()" class="text-cyan-400 hover:underline font-bold focus:outline-none">(Editar)</button>
                 </div>
             </div>
@@ -473,15 +475,15 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         <div class="border-t border-slate-800 pt-4 mt-4 flex flex-col gap-4">
             <div class="flex flex-col gap-2 text-xs">
                 <div class="flex justify-between">
-                    <span class="text-slate-400 font-bold">Productos:</span>
+                    <span class="text-slate-300 font-bold">Productos:</span>
                     <span class="text-white font-bold" id="drawer-total-qty">0</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400 font-bold">Subtotal:</span>
+                    <span class="text-slate-300 font-bold">Subtotal:</span>
                     <span class="text-white font-bold" id="drawer-subtotal">$0.00 MXN</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400 font-bold">Envío:</span>
+                    <span class="text-slate-300 font-bold">Envío:</span>
                     <span class="text-white font-bold" id="drawer-shipping">$0.00 MXN</span>
                 </div>
                 <div class="flex justify-between items-center border-t border-slate-800 pt-2 mt-2">
@@ -509,29 +511,29 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
     <div class="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-6 text-slate-100 shadow-2xl z-10">
         <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-4">
             <h3 class="text-sm font-black text-white flex items-center gap-2"><i class="fa-solid fa-credit-card text-cyan-400"></i> Elige tu forma de pago</h3>
-            <button class="text-slate-400 hover:text-white cursor-pointer text-xl" onclick="closePaymentModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="text-slate-300 hover:text-white cursor-pointer text-xl" onclick="closePaymentModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         
         <!-- Step 1: Option List -->
         <div id="payment-options" class="flex flex-col gap-3">
             <button onclick="confirmPaymentMethod('Efectivo contra entrega')" class="w-full text-left p-4 bg-slate-950 border border-slate-800 hover:border-cyan-500 rounded-xl transition flex items-center justify-between group">
                 <div>
-                    <h4 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Efectivo contra entrega (Uber)</h4>
-                    <p class="text-[10px] text-slate-400">Paga en efectivo al recibir tu pedido.</p>
+                    <h3 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Efectivo contra entrega (Uber)</h3>
+                    <p class="text-[10px] text-slate-300">Paga en efectivo al recibir tu pedido.</p>
                 </div>
                 <i class="fa-solid fa-money-bill-wave text-green-500 text-base"></i>
             </button>
             <button onclick="showCardForm()" class="w-full text-left p-4 bg-slate-950 border border-slate-800 hover:border-cyan-500 rounded-xl transition flex items-center justify-between group">
                 <div>
-                    <h4 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Tarjeta de Crédito / Débito</h4>
-                    <p class="text-[10px] text-slate-400">Pago seguro en línea con Visa o Mastercard.</p>
+                    <h3 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Tarjeta de Crédito / Débito</h3>
+                    <p class="text-[10px] text-slate-300">Pago seguro en línea con Visa o Mastercard.</p>
                 </div>
                 <i class="fa-solid fa-credit-card text-blue-500 text-base"></i>
             </button>
             <button onclick="showSPEIInfo()" class="w-full text-left p-4 bg-slate-950 border border-slate-800 hover:border-cyan-500 rounded-xl transition flex items-center justify-between group">
                 <div>
-                    <h4 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Transferencia SPEI</h4>
-                    <p class="text-[10px] text-slate-400">Depósito bancario directo con CLABE.</p>
+                    <h3 class="text-xs font-black text-white group-hover:text-cyan-400 transition">Transferencia SPEI</h3>
+                    <p class="text-[10px] text-slate-300">Depósito bancario directo con CLABE.</p>
                 </div>
                 <i class="fa-solid fa-building-columns text-amber-500 text-base"></i>
             </button>
@@ -540,21 +542,21 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         <!-- Step 2a: Card Form -->
         <div id="payment-card-form" class="hidden flex flex-col gap-3">
             <div class="text-xs flex flex-col gap-1.5">
-                <label class="text-slate-400 font-bold">Número de Tarjeta</label>
+                <label class="text-slate-300 font-bold">Número de Tarjeta</label>
                 <input type="text" id="pay-card-num" placeholder="XXXX XXXX XXXX XXXX" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500 text-xs font-mono"/>
             </div>
             <div class="grid grid-cols-2 gap-3">
                 <div class="text-xs flex flex-col gap-1.5">
-                    <label class="text-slate-400 font-bold">Vencimiento</label>
+                    <label class="text-slate-300 font-bold">Vencimiento</label>
                     <input type="text" id="pay-card-expiry" placeholder="MM/AA" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500 text-xs font-mono"/>
                 </div>
                 <div class="text-xs flex flex-col gap-1.5">
-                    <label class="text-slate-400 font-bold">CVV</label>
+                    <label class="text-slate-300 font-bold">CVV</label>
                     <input type="password" id="pay-card-cvv" placeholder="***" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500 text-xs font-mono"/>
                 </div>
             </div>
             <div class="text-xs flex flex-col gap-1.5">
-                <label class="text-slate-400 font-bold">Nombre del Titular</label>
+                <label class="text-slate-300 font-bold">Nombre del Titular</label>
                 <input type="text" id="pay-card-name" placeholder="Nombre completo" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500 text-xs"/>
             </div>
             <div class="flex gap-2.5 mt-2">
@@ -567,23 +569,23 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         <div id="payment-spei-info" class="hidden flex flex-col gap-3">
             <div class="bg-slate-950 p-4 border border-slate-800 rounded-xl flex flex-col gap-2 text-xs">
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Banco:</span>
+                    <span class="text-slate-300">Banco:</span>
                     <span class="text-white font-bold">Banco Gemini</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Beneficiario:</span>
+                    <span class="text-slate-300">Beneficiario:</span>
                     <span class="text-white font-bold">Anti-Gravity Ecosistema</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">CLABE:</span>
+                    <span class="text-slate-300">CLABE:</span>
                     <span class="text-white font-mono font-bold">0123 4567 8901 2345 67</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Referencia:</span>
+                    <span class="text-slate-300">Referencia:</span>
                     <span class="text-white font-mono font-bold">AGY-8899</span>
                 </div>
             </div>
-            <p class="text-[10px] text-slate-400 font-semibold">Realiza tu transferencia desde tu banca móvil y pulsa confirmar para registrar tu forma de pago.</p>
+            <p class="text-[10px] text-slate-300 font-semibold">Realiza tu transferencia desde tu banca móvil y pulsa confirmar para registrar tu forma de pago.</p>
             <div class="flex gap-2.5 mt-2">
                 <button onclick="backToPaymentOptions()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-2 rounded-xl text-xs transition">Regresar</button>
                 <button onclick="confirmSPEIPayment()" class="flex-1 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black py-2 rounded-xl text-xs transition">Confirmar SPEI</button>
@@ -598,7 +600,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
     <div class="relative w-full max-w-xl bg-slate-900 border border-slate-800 rounded-3xl p-6 text-slate-100 shadow-2xl z-10">
         <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-4">
             <h3 class="text-sm font-black text-white flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-cyan-400"></i> Historial de Mis Pedidos</h3>
-            <button class="text-slate-400 hover:text-white cursor-pointer text-xl" onclick="closeOrdersModal()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="text-slate-300 hover:text-white cursor-pointer text-xl" onclick="closeOrdersModal()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-4 max-h-[60vh] overflow-y-auto pr-1" id="orders-modal-content">
             <!-- Rendered dynamically -->
@@ -623,13 +625,13 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         <div>
             <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-6">
                 <h3 class="text-base font-black text-white flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-amber-500"></i> Tu Carrito</h3>
-                <button class="text-2xl text-slate-400 hover:text-white cursor-pointer" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+                <button class="text-2xl text-slate-300 hover:text-white cursor-pointer" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="flex flex-col gap-4 overflow-y-auto max-h-[60vh] pr-1" id="drawer-cart-items"></div>
         </div>
         <div class="border-t border-slate-800 pt-6 mt-6 flex flex-col gap-4">
             <div class="flex justify-between items-center">
-                <span class="text-xs font-mono text-slate-400 uppercase font-bold">Subtotal:</span>
+                <span class="text-xs font-mono text-slate-300 uppercase font-bold">Subtotal:</span>
                 <span class="text-lg font-black text-white" id="drawer-subtotal">$0.00 MXN</span>
             </div>
             <div class="grid grid-cols-2 gap-3">
@@ -649,33 +651,33 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <h2 class="text-lg font-black text-white mb-2 flex items-center gap-2">
 <i class="fa-solid fa-map-location-dot text-amber-500"></i> Registrar Domicilio de Entrega
         </h2>
-<p class="text-[11px] text-slate-400 mb-4 leading-relaxed">
+<p class="text-[11px] text-slate-300 mb-4 leading-relaxed">
             ⚠️ <strong>Nota:</strong> Servicio disponible únicamente a no más de <strong>5 km de distancia</strong> de nuestra sucursal Centro.
         </p>
 <form class="flex flex-col gap-3" id="deliveryForm" onsubmit="saveDeliveryAddress(event)">
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Nombre Completo</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Nombre Completo</label>
 <input aria-label="Nombre completo del comprador" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryName" placeholder="Ej. Juan Pérez" required="" type="text"/>
 </div>
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Teléfono de Contacto</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Teléfono de Contacto</label>
 <input aria-label="Número de teléfono a 10 dígitos" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryPhone" placeholder="Ej. 3337271440" required="" type="tel"/>
 </div>
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Correo Electrónico</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Correo Electrónico</label>
 <input aria-label="Correo electrónico de contacto" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryEmail" placeholder="Ej. cliente@correo.com" required="" type="email"/>
 </div>
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Calle y Número</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Calle y Número</label>
 <input aria-label="Calle y número de domicilio" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryStreet" placeholder="Ej. Av. Pedro Moreno 123" required="" type="text"/>
 </div>
 <div class="grid grid-cols-2 gap-2.5">
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Colonia</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Colonia</label>
 <input aria-label="Colonia de entrega" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryColonia" placeholder="Ej. Centro" required="" type="text"/>
 </div>
 <div>
-<label class="block text-[10px] font-mono text-slate-400 uppercase mb-1 font-bold">Ciudad</label>
+<label class="block text-[10px] font-mono text-slate-300 uppercase mb-1 font-bold">Ciudad</label>
 <input aria-label="Ciudad y estado de la entrega" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-blue-500" id="deliveryCity" placeholder="Ej. Guadalajara" required="" type="text"/>
 </div>
 </div>
@@ -697,18 +699,18 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <div class="lg:col-span-1 bg-white p-4 rounded-2xl border border-slate-200/80 shadow-md flex flex-col gap-4">
 <div>
 <h4 class="text-xs font-black text-slate-800 mb-2">Disponibilidad</h4>
-<label class="flex items-center gap-2 text-xs text-slate-400 mb-1 cursor-pointer">
+<label class="flex items-center gap-2 text-xs text-slate-300 mb-1 cursor-pointer">
 <input aria-label="Campo de entrada de texto" checked="" class="rounded border-slate-300 text-blue-600 focus:ring-blue-500" type="checkbox"/>
 <span>En existencia</span>
 </label>
-<label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+<label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
 <input aria-label="Campo de entrada de texto" class="rounded border-slate-300 text-blue-600 focus:ring-blue-500" type="checkbox"/>
 <span>Incluir No Disponibles</span>
 </label>
 </div>
 <div class="border-t border-slate-100 pt-3">
 <h4 class="text-xs font-black text-slate-800 mb-2">Departamentos</h4>
-<ul class="flex flex-col gap-1 text-xs text-slate-400" id="department-filter-list">
+<ul class="flex flex-col gap-1 text-xs text-slate-300" id="department-filter-list">
 <li class="font-bold text-blue-600 cursor-pointer hover:underline" onclick="filterByDept('todas')">🛍️ Todas las Secciones</li>
 <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('revistas')">📖 Revistas y Periódicos</li>
 <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('dulces')">🍬 Dulcería y Botanas</li>
@@ -718,7 +720,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 </div>
 <div class="border-t border-slate-100 pt-3">
 <h4 class="text-xs font-black text-slate-800 mb-2">Tipo de Mercado</h4>
-<ul class="flex flex-col gap-1 text-xs text-slate-400" id="market-filter-list">
+<ul class="flex flex-col gap-1 text-xs text-slate-300" id="market-filter-list">
 <li class="font-bold text-blue-600 cursor-pointer hover:underline" onclick="filterByMarket('todas')">Todos los Mercados</li>
 <li class="cursor-pointer hover:text-blue-600" onclick="filterByMarket('Primer Mercado')">Primer Mercado (Nuevos)</li>
 <li class="cursor-pointer hover:text-blue-600" onclick="filterByMarket('Segundo Mercado')">Segundo Mercado (Reventa)</li>
@@ -726,7 +728,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 </div>
 <div class="border-t border-slate-100 pt-3">
 <h4 class="text-xs font-black text-slate-800 mb-2">Existencias</h4>
-<ul class="flex flex-col gap-1.5 font-mono text-[10px] text-slate-400" id="magazine-stock-list">
+<ul class="flex flex-col gap-1.5 font-mono text-[10px] text-slate-300" id="magazine-stock-list">
 <!-- Títulos y stock -->
 </ul>
 </div>
@@ -984,7 +986,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <h3 class="text-sm font-black text-slate-900 flex items-center gap-1.5">
 <i class="fa-solid fa-fire text-amber-500"></i> Los Más Vendidos &amp; Promociones Especiales
                     </h3>
-<p class="text-[10px] text-slate-400 -mt-2">Artículos recomendados de hoy.</p>
+<p class="text-[10px] text-slate-300 -mt-2">Artículos recomendados de hoy.</p>
 <div class="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 pb-4 md:pb-0" id="featured-grid-container">
 <!-- 10 productos cargados por JS -->
 </div>
@@ -3839,11 +3841,11 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
                     </div>
                     <div class="flex flex-col gap-1 mt-1">
                         <div class="flex justify-between items-center gap-1">
-                            <span class="text-[9px] font-mono font-bold text-slate-400">${p.sku}</span>
-                            <span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-slate-100 text-slate-400 border border-slate-200">${p.categoria}</span>
+                            <span class="text-[9px] font-mono font-bold text-slate-300">${p.sku}</span>
+                            <span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-slate-100 text-slate-300 border border-slate-200">${p.categoria}</span>
                         </div>
                         <h4 class="text-xs font-black text-slate-900 leading-tight line-clamp-2 min-h-[32px]">${p.nombre}</h4>
-                        <p class="text-[9px] text-slate-400 line-clamp-2 leading-snug">${p.descripcion}</p>
+                        <p class="text-[9px] text-slate-300 line-clamp-2 leading-snug">${p.descripcion}</p>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 mt-4 pt-2.5 border-t border-slate-100">
@@ -3865,7 +3867,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
             li.className = "flex justify-between items-center py-0.5 border-b border-slate-50 hover:text-blue-600 transition cursor-pointer";
             li.innerHTML = `
                 <span class="truncate max-w-[90px]">${p.nombre}</span>
-                <span class="font-bold text-slate-400">(${p.existencias})</span>
+                <span class="font-bold text-slate-300">(${p.existencias})</span>
             `;
             li.onclick = () => {
                 const searchInput = document.getElementById("siteSearch");
@@ -3901,7 +3903,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
             gridContainer.innerHTML = `
                 <div class="col-span-full bg-white p-12 rounded-3xl text-center border border-slate-200 shadow-md">
                     <i class="fa-solid fa-folder-open text-slate-300 text-4xl mb-3"></i>
-                    <p class="text-sm font-semibold text-slate-400">No se encontraron productos coincidentes en el inventario.</p>
+                    <p class="text-sm font-semibold text-slate-300">No se encontraron productos coincidentes en el inventario.</p>
                 </div>
             `;
             return;
@@ -3916,7 +3918,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
             gridContainer.innerHTML = `
                 <div class="col-span-full bg-white p-12 rounded-3xl text-center border border-slate-200 shadow-md">
                     <i class="fa-solid fa-rectangle-xmark text-slate-300 text-4xl mb-3"></i>
-                    <p class="text-sm font-semibold text-slate-400">Esta página está vacía. Registra más productos en el catálogo.</p>
+                    <p class="text-sm font-semibold text-slate-300">Esta página está vacía. Registra más productos en el catálogo.</p>
                 </div>
             `;
             return;
@@ -3938,12 +3940,12 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
                     <!-- Details -->
                     <div class="flex flex-col gap-1 mt-1">
                         <div class="flex justify-between items-center gap-1">
-                            <span class="text-[9px] font-mono font-bold text-slate-400">${p.sku}</span>
+                            <span class="text-[9px] font-mono font-bold text-slate-300">${p.sku}</span>
                             <span class="text-[9px] font-bold px-1.5 py-0.2 rounded ${p.inventario_tipo === 'Primer Mercado' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}">${p.inventario_tipo}</span>
                         </div>
                         <h4 class="text-xs font-black text-slate-900 leading-tight line-clamp-2 min-h-[32px]">${p.nombre}</h4>
-                        <p class="text-[10px] text-slate-400 line-clamp-2 leading-snug">${p.descripcion}</p>
-                        <span class="text-[9px] text-slate-400 font-medium">Frecuencia: <strong>${p.frecuencia}</strong></span>
+                        <p class="text-[10px] text-slate-300 line-clamp-2 leading-snug">${p.descripcion}</p>
+                        <span class="text-[9px] text-slate-300 font-medium">Frecuencia: <strong>${p.frecuencia}</strong></span>
                     </div>
                 </div>
                 <!-- Price and Amazon-style Buy Button -->
@@ -3982,7 +3984,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 
         pagesToDraw.forEach(pNum => {
             const btn = document.createElement("button");
-            btn.className = `px-3.5 py-1.5 rounded-lg text-xs font-black transition border shadow-sm ${currentPage === pNum ? 'bg-blue-600 text-white border-transparent' : 'bg-white text-slate-400 border-slate-200 hover:bg-slate-50'}`;
+            btn.className = `px-3.5 py-1.5 rounded-lg text-xs font-black transition border shadow-sm ${currentPage === pNum ? 'bg-blue-600 text-white border-transparent' : 'bg-white text-slate-300 border-slate-200 hover:bg-slate-50'}`;
             btn.innerText = pNum;
             btn.onclick = () => {
                 currentPage = pNum;
@@ -4121,7 +4123,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         const stored = localStorage.getItem('user_delivery_address');
         if (stored) {
             const data = JSON.parse(stored);
-            addressDisplay.innerHTML = `📍 Entregar a: <strong class="text-amber-400">${data.name}</strong> <span class="text-slate-400">(${data.street}, ${data.colonia} - Tel: ${data.phone} - Email: ${data.email})</span> <button onclick="openDeliveryModal()" class="text-blue-400 hover:underline font-bold ml-1 cursor-pointer">Cambiar</button>`;
+            addressDisplay.innerHTML = `📍 Entregar a: <strong class="text-amber-400">${data.name}</strong> <span class="text-slate-300">(${data.street}, ${data.colonia} - Tel: ${data.phone} - Email: ${data.email})</span> <button onclick="openDeliveryModal()" class="text-blue-400 hover:underline font-bold ml-1 cursor-pointer">Cambiar</button>`;
         } else {
             addressDisplay.innerHTML = `<span>📍 ¿En dónde quieres que llegue tu producto? </span><button onclick="openDeliveryModal()" class="text-amber-400 hover:text-amber-300 font-black underline ml-1 cursor-pointer">Registrar dirección</button>`;
         }
@@ -4175,7 +4177,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
         
         if (cart.length === 0) {
             container.innerHTML = `
-                <div class="text-center py-12 text-slate-400">
+                <div class="text-center py-12 text-slate-300">
                     <i class="fa-solid fa-cart-flatbed text-4xl mb-3 block opacity-40"></i>
                     <p class="text-xs font-semibold">Tu carrito está vacío.</p>
                 </div>
@@ -4200,16 +4202,16 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
                 <div class="flex-1 flex flex-col justify-between min-h-[50px]">
                     <div class="flex justify-between items-start gap-1">
                         <h4 class="text-[11px] font-black text-white leading-tight line-clamp-2">${item.nombre}</h4>
-                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-400 hover:text-red-400 text-xs cursor-pointer">
+                        <button onclick="removeFromCart('${item.sku}')" class="text-slate-300 hover:text-red-400 text-xs cursor-pointer">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>
                     <div class="flex justify-between items-center mt-1">
                         <span class="text-xs font-black text-amber-400">$${price.toFixed(2)}</span>
                         <div class="flex items-center gap-2.5 bg-slate-900 border border-slate-800 rounded-lg px-2 py-0.5">
-                            <button onclick="changeQuantity('${item.sku}', -1)" class="text-[10px] text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-minus"></i></button>
+                            <button onclick="changeQuantity('${item.sku}', -1)" class="text-[10px] text-slate-300 hover:text-white cursor-pointer"><i class="fa-solid fa-minus"></i></button>
                             <span class="text-[11px] font-mono font-bold w-3 text-center">${qty}</span>
-                            <button onclick="changeQuantity('${item.sku}', 1)" class="text-[10px] text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-plus"></i></button>
+                            <button onclick="changeQuantity('${item.sku}', 1)" class="text-[10px] text-slate-300 hover:text-white cursor-pointer"><i class="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -4270,12 +4272,12 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[300] hidden bg-slate-900/95 border border-slate-700 text-white rounded-2xl p-5 shadow-2xl flex flex-col items-center gap-2 max-w-sm w-full text-center" id="cartToast">
 <i class="fa-solid fa-circle-check text-green-500 text-2xl animate-bounce"></i>
 <span class="text-sm font-black">¡Se ha agregado al carrito!</span>
-<span class="text-xs text-slate-400 font-semibold" id="cartToastDetails"></span>
+<span class="text-xs text-slate-300 font-semibold" id="cartToastDetails"></span>
 </div>
 <!-- FOOTER INFORMACIÓN Y POLÍTICAS -->
 
 </main>
-<footer class="w-full bg-slate-950 text-slate-400 text-xs py-8 px-6 md:px-12 border-t border-slate-800 mt-12">
+<footer class="w-full bg-slate-950 text-slate-300 text-xs py-8 px-6 md:px-12 border-t border-slate-800 mt-12">
 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 <div>
 <h4 class="text-sm font-black text-white mb-2.5">Contacto Local</h4>
@@ -4316,10 +4318,10 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
 <div>
 <span class="font-bold text-sm text-white block">Asistente Virtual // Puesto de Revistas &amp; Bazar</span>
-<span class="text-xs text-slate-400 font-mono">Responde al instante 24/7</span>
+<span class="text-xs text-slate-300 font-mono">Responde al instante 24/7</span>
 </div>
 </div>
-<button aria-label="Botón de acción interactiva" class="text-slate-400 hover:text-white p-1 cursor-pointer" onclick="toggleChatbot()"><i class="fa-solid fa-xmark text-lg"></i></button>
+<button aria-label="Botón de acción interactiva" class="text-slate-300 hover:text-white p-1 cursor-pointer" onclick="toggleChatbot()"><i class="fa-solid fa-xmark text-lg"></i></button>
 </div>
 <div class="p-4 flex-1 overflow-y-auto space-y-4 text-sm max-h-[350px]" id="chat-messages">
 <div class="bg-slate-800 text-slate-100 p-4 rounded-2xl rounded-tl-none border border-slate-700 leading-relaxed space-y-3">
@@ -4332,7 +4334,7 @@ body { background-color: #f8fafc; color: #1e293b; margin: 0; font-family: system
 <i class="fa-brands fa-whatsapp text-sm"></i> Chatear por WhatsApp
                         </a>
 </div>
-<p class="text-slate-400 text-[11px] pt-1 font-mono text-center">O escribe tu mensaje abajo si no cuentas con WhatsApp:</p>
+<p class="text-slate-300 text-[11px] pt-1 font-mono text-center">O escribe tu mensaje abajo si no cuentas con WhatsApp:</p>
 </div>
 </div>
 <div class="p-3 bg-slate-950 border-t border-slate-800 flex gap-2">
