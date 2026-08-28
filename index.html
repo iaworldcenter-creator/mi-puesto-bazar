@@ -333,137 +333,1266 @@ window.boutiqueProducts = [{'sku': 'PST-001', 'nombre': 'Lentes de Sol con Bocin
         </div>
     </header>
 
-        <main class="w-full max-w-[99%] 2xl:max-w-[1850px] mx-auto px-2 sm:px-4 py-4 flex-1">
-        
-        <!-- CONTENEDOR PRINCIPAL: SIDEBAR FILTROS (IZQUIERDA) + CATÁLOGO COMPLETO (DERECHA) -->
-        <div class="flex flex-col lg:flex-row gap-6 items-start justify-center">
+    <main class="w-full max-w-[99%] 2xl:max-w-[1850px] mx-auto px-2 sm:px-4 py-6 flex-1">
+        <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
             
-            <!-- 1. BARRA LATERAL IZQUIERDA (FILTROS DE BÚSQUEDA Y FACETS) -->
-            <aside class="w-full lg:w-[280px] xl:w-[310px] shrink-0 bg-slate-900/90 rounded-3xl p-4 sm:p-5 shadow-2xl border border-slate-800" id="boutique-sidebar-root">
-                <!-- Inyectado dinámicamente por JS con estilo idéntico a la referencia CT -->
-            </aside>
-
-            <!-- 2. ÁREA DE CATÁLOGO PRINCIPAL (DERECHA, ANCHO COMPLETO) -->
-            <section class="flex-1 min-w-0 w-full flex flex-col gap-4">
-                
-                <!-- BANNER PROMOCIONAL SUPERIOR -->
-                <div class="w-full rounded-2xl overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 border border-cyan-500/30 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-400 flex items-center justify-center text-cyan-300 text-2xl shrink-0">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-widest block">Distribución Directa Oficial</span>
-                            <h3 class="text-white font-bold text-sm sm:text-base">Precios de Mayoreo y Entrega Inmediata en Guadalajara</h3>
-                        </div>
-                    </div>
-                    <button onclick="document.getElementById('boutiqueSearchInput').focus()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black px-4 py-2 rounded-xl text-xs uppercase font-mono tracking-wider shadow-lg shadow-cyan-500/30 transition active:scale-95 cursor-pointer shrink-0">
-                        Explorar Catálogo
-                    </button>
+            <!-- SIDEBAR CON CATEGORÍAS PRE-RENDERIZADAS (0 CLS) -->
+            <aside class="w-full lg:w-[340px] xl:w-[370px] shrink-0 bg-slate-900/90 rounded-3xl p-5 shadow-2xl relative" id="boutique-sidebar-root">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3.5 mb-3.5">
+                    <h2 class="font-mono text-sm font-black text-white uppercase tracking-wider flex items-center gap-2 truncate"><i class="fa-solid fa-layer-group text-amber-400"></i> Departamentos</h2>
+                </div>
+                <div class="mb-3.5">
+                    <span class="text-[10px] font-mono text-emerald-400 font-bold bg-cyan-950/40 border border-cyan-500/30 px-3 py-1 rounded-xl block text-center uppercase tracking-widest">
+                        Catálogo de 200 Productos
+                    </span>
                 </div>
 
-                <!-- BARRA DE CONTROL SUPERIOR (RESULTADOS + VISTAS + PAGINACIÓN 1..7...N + ORDEN) -->
-                <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-                    <div>
-                        <h2 class="text-sm sm:text-base font-black text-white font-mono uppercase tracking-wide" id="section-title">
-                            Resultados de Búsqueda
-                        </h2>
-                        <span class="results-count-text text-xs font-mono text-cyan-400 font-bold" id="results-count-txt">
-                            Mostrando 1 - 20 Productos
+                <nav class="flex flex-col gap-2" id="sidebar-categories-list">
+
+                    <button 
+                        onclick="filterCategory('Audio, Audífonos & Bocinas Bluetooth')"
+                        aria-label="Filtrar por Audio, Audífonos & Bocinas Bluetooth"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-headphones text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Audio, Audífonos & Bocinas Bluetooth</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                    <button 
+                        onclick="filterCategory('Cables, Cargadores & Accesorios Celular')"
+                        aria-label="Filtrar por Cables, Cargadores & Accesorios Celular"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-plug text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Cables, Cargadores & Accesorios Celular</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                    <button 
+                        onclick="filterCategory('Lámparas, Linternas & Herramientas Hogar')"
+                        aria-label="Filtrar por Lámparas, Linternas & Herramientas Hogar"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-screwdriver-wrench text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Lámparas, Linternas & Herramientas Hogar</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                    <button 
+                        onclick="filterCategory('Gorras, Calcetines & Novedades Textiles')"
+                        aria-label="Filtrar por Gorras, Calcetines & Novedades Textiles"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-shirt text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Gorras, Calcetines & Novedades Textiles</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                    <button 
+                        onclick="filterCategory('Juguetes, Juegos & Coleccionables')"
+                        aria-label="Filtrar por Juguetes, Juegos & Coleccionables"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-gamepad text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Juguetes, Juegos & Coleccionables</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                    <button 
+                        onclick="filterCategory('Artículos de Uso Diario & Bazar Express')"
+                        aria-label="Filtrar por Artículos de Uso Diario & Bazar Express"
+                        class="w-full text-left p-3.5 rounded-2xl bg-slate-950/70 hover:bg-slate-800/90 shadow-md flex justify-between items-center transition group cursor-pointer"
+                    >
+                        <div class="flex items-center gap-3.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-emerald-400 shrink-0 shadow">
+                                <i class="fa-solid fa-store text-sm"></i>
+                            </div>
+                            <strong class="text-white text-xs block group-hover:text-cyan-300 truncate font-bold">Artículos de Uso Diario & Bazar Express</strong>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-emerald-400 transition group-hover:translate-x-0.5 shrink-0 ml-2"></i>
+                    </button>
+                </nav>
+
+                <!-- CÓDIGO QR PERSUASIVO -->
+                </aside>
+
+            <!-- ESCAPARATE CON 5 COLUMNAS X 4 FILAS (20 PRODUCTOS POR PÁGINA) -->
+            <section class="flex-1 w-full flex flex-col gap-4 min-w-0">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                    <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider" id="results-count-txt">
+                        Mostrando 1 - 20 de 200 Productos
+                    </span>
+                    <span class="text-xs font-mono text-slate-400">Pedro Moreno 501 A</span>
+                </div>
+
+                <!-- Grilla de Productos: 5 columnas en Desktop, 4 en Tablet, 2 en Móvil -->
+                <div id="products-grid-container" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 pb-4">
+
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-001" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/32U631A-B-4.webp" 
+                        alt="Audífonos Inalámbricos Bluetooth con Estuche de Carga - 1Hora" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">1Hora</span>
+                    <span class="text-slate-400 font-bold">MI-001</span>
+                </div>
+
+                <a href="producto.html?sku=MI-001" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Audífonos Inalámbricos Bluetooth con Estuche de Carga - 1Hora">Audífonos Inalámbricos Bluetooth con Estuche de Carga - 1Hora</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Cancelación pasiva de ruido y hasta 20h de batería.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$380.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $280.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
                         </span>
                     </div>
+                </div>
 
-                    <!-- CONTROLES A LA DERECHA: SELECTOR VISTA + PAGINACIÓN ARRIBA + ORDENAR -->
-                    <div class="flex items-center gap-3 flex-wrap justify-between w-full md:w-auto">
-                        <!-- Iconos Vista Grid / List -->
-                        <div class="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
-                            <button onclick="setCatalogView('list')" title="Vista Listado Horizontal" aria-label="Vista Listado" class="btn-view-toggle-list p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition cursor-pointer">
-                                <i class="fa-solid fa-list-ul text-sm"></i>
-                            </button>
-                            <button onclick="setCatalogView('grid')" title="Vista Cuadrícula / Grupos" aria-label="Vista Cuadrícula" class="btn-view-toggle-grid p-2 rounded-lg bg-cyan-500 text-slate-950 font-black shadow-lg shadow-cyan-500/30 transition cursor-pointer">
-                                <i class="fa-solid fa-table-cells text-sm"></i>
-                            </button>
-                        </div>
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-001', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-001')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-002" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/32UR500-B-1.webp" 
+                        alt="Bocina Bluetooth Portátil Resistente al Agua con Luces RGB - T&G Audio" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
 
-                        <!-- Paginación 1..7...N Arriba -->
-                        <div class="pagination-controls-container">
-                            <!-- Inyectado por JS -->
-                        </div>
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">T&G Audio</span>
+                    <span class="text-slate-400 font-bold">MI-002</span>
+                </div>
 
-                        <!-- Selector Ordenar por -->
-                        <div class="hidden xl:flex items-center gap-1.5 text-xs font-mono text-slate-400">
-                            <span>Ordenar:</span>
-                            <select onchange="onSortChange(event)" class="bg-slate-950 border border-slate-800 text-slate-200 rounded-lg px-2 py-1 text-xs font-mono cursor-pointer">
-                                <option value="existencia">Existencia</option>
-                                <option value="precio_asc">Precio: Menor a Mayor</option>
-                                <option value="precio_desc">Precio: Mayor a Menor</option>
-                                <option value="nombre">Nombre A-Z</option>
-                            </select>
-                        </div>
+                <a href="producto.html?sku=MI-002" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Bocina Bluetooth Portátil Resistente al Agua con Luces RGB - T&G Audio">Bocina Bluetooth Portátil Resistente al Agua con Luces RGB - T&G Audio</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Graves potentes y micrófono para llamadas manos libres.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$540.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $400.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
                     </div>
                 </div>
 
-                <!-- CONTENEDOR DE PRODUCTOS (GRID DE 5 COLUMNAS EN ESCRITORIO, 2 EN MÓVIL, O LISTA HORIZONTAL) -->
-                <div id="products-grid-container" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 pb-2">
-                    <!-- Inyectado por JS -->
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-002', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-002')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-003" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/32UR500-B-2.webp" 
+                        alt="Cargador Rápido 20W USB-C para iPhone y Android - Xiaomi Line" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -27% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Xiaomi Line</span>
+                    <span class="text-slate-400 font-bold">MI-003</span>
                 </div>
 
-                <!-- PAGINACIÓN NUMÉRICA INFERIOR 1..7 ... N -->
-                <div class="pagination-controls-container p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl flex justify-center items-center">
-                    <!-- Inyectado por JS -->
+                <a href="producto.html?sku=MI-003" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Cargador Rápido 20W USB-C para iPhone y Android - Xiaomi Line">Cargador Rápido 20W USB-C para iPhone y Android - Xiaomi Line</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Carga el 50% de batería en solo 30 minutos.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$260.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $190.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-003', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-003')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-004" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/32UR500K-B.AWM-1.webp" 
+                        alt="Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros - Bazar Pro" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Bazar Pro</span>
+                    <span class="text-slate-400 font-bold">MI-004</span>
+                </div>
+
+                <a href="producto.html?sku=MI-004" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros - Bazar Pro">Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros - Bazar Pro</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Soporta transferencia de datos y carga de 60W.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$190.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $140.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-004', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-004')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-005" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/32UR500K-B.AWM-2.webp" 
+                        alt="Soporte Magnético para Celular en Rejilla de Automóvil - Maxell" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -27% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Maxell</span>
+                    <span class="text-slate-400 font-bold">MI-005</span>
+                </div>
+
+                <a href="producto.html?sku=MI-005" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Soporte Magnético para Celular en Rejilla de Automóvil - Maxell">Soporte Magnético para Celular en Rejilla de Automóvil - Maxell</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Imanes de neodimio de alta potencia anti-vibración.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$220.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $160.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-005', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-005')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-006" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/3392C001AA-1.webp" 
+                        alt="Lámpara LED de Escritorio Recargable con 3 Tonos de Luz - Kingston" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Kingston</span>
+                    <span class="text-slate-400 font-bold">MI-006</span>
+                </div>
+
+                <a href="producto.html?sku=MI-006" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Lámpara LED de Escritorio Recargable con 3 Tonos de Luz - Kingston">Lámpara LED de Escritorio Recargable con 3 Tonos de Luz - Kingston</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Control táctil y cuello flexible de 360 grados.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$420.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $310.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-006', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-006')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-007" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/345N0AA-1.webp" 
+                        alt="Juego de Desarmadores de Precisión 24 en 1 para Celulares - Steren Style" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Steren Style</span>
+                    <span class="text-slate-400 font-bold">MI-007</span>
+                </div>
+
+                <a href="producto.html?sku=MI-007" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Juego de Desarmadores de Precisión 24 en 1 para Celulares - Steren Style">Juego de Desarmadores de Precisión 24 en 1 para Celulares - Steren Style</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Puntas de acero templado magnéticas para electrónica.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$390.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $290.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-007', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-007')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-008" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/345N0AA-2.webp" 
+                        alt="Gorra Urbana Bordada con Broche Ajustable - Baseus" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Baseus</span>
+                    <span class="text-slate-400 font-bold">MI-008</span>
+                </div>
+
+                <a href="producto.html?sku=MI-008" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Gorra Urbana Bordada con Broche Ajustable - Baseus">Gorra Urbana Bordada con Broche Ajustable - Baseus</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Visera curva y tela de algodón transpirable.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$320.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $240.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-008', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-008')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-009" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/345N1AA-1.webp" 
+                        alt="Paquete de 3 Pares de Calcetines Deportivos Reforzados - Hoco" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -27% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Hoco</span>
+                    <span class="text-slate-400 font-bold">MI-009</span>
+                </div>
+
+                <a href="producto.html?sku=MI-009" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Paquete de 3 Pares de Calcetines Deportivos Reforzados - Hoco">Paquete de 3 Pares de Calcetines Deportivos Reforzados - Hoco</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Amortiguación en talón y soporte en arco.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$150.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $110.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-009', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-009')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-010" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/345N1AA-2.webp" 
+                        alt="Consola Portátil Retro con 400 Juegos Clásicos - JBL Tribute" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">JBL Tribute</span>
+                    <span class="text-slate-400 font-bold">MI-010</span>
+                </div>
+
+                <a href="producto.html?sku=MI-010" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Consola Portátil Retro con 400 Juegos Clásicos - JBL Tribute">Consola Portátil Retro con 400 Juegos Clásicos - JBL Tribute</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Pantalla a color de 3 pulgadas y salida AV para TV.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$530.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $390.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-010', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-010')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-011" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/34GS95QE-1.webp" 
+                        alt="Audífonos Inalámbricos Bluetooth con Estuche de Carga Mod. 1Hora v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">1Hora</span>
+                    <span class="text-slate-400 font-bold">MI-011</span>
+                </div>
+
+                <a href="producto.html?sku=MI-011" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Audífonos Inalámbricos Bluetooth con Estuche de Carga Mod. 1Hora v2">Audífonos Inalámbricos Bluetooth con Estuche de Carga Mod. 1Hora v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Cancelación pasiva de ruido y hasta 20h de batería.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$420.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $310.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-011', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-011')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-012" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/34GS95QE-2.webp" 
+                        alt="Bocina Bluetooth Portátil Resistente al Agua con Luces RGB Mod. T&G Audio v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">T&G Audio</span>
+                    <span class="text-slate-400 font-bold">MI-012</span>
+                </div>
+
+                <a href="producto.html?sku=MI-012" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Bocina Bluetooth Portátil Resistente al Agua con Luces RGB Mod. T&G Audio v2">Bocina Bluetooth Portátil Resistente al Agua con Luces RGB Mod. T&G Audio v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Graves potentes y micrófono para llamadas manos libres.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$590.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $440.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-012', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-012')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-013" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/34GS95QE-3.webp" 
+                        alt="Cargador Rápido 20W USB-C para iPhone y Android Mod. Xiaomi Line v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -27% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Xiaomi Line</span>
+                    <span class="text-slate-400 font-bold">MI-013</span>
+                </div>
+
+                <a href="producto.html?sku=MI-013" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Cargador Rápido 20W USB-C para iPhone y Android Mod. Xiaomi Line v2">Cargador Rápido 20W USB-C para iPhone y Android Mod. Xiaomi Line v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Carga el 50% de batería en solo 30 minutos.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$300.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $220.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-013', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-013')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-014" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/353434-1.webp" 
+                        alt="Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros Mod. Bazar Pro v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Bazar Pro</span>
+                    <span class="text-slate-400 font-bold">MI-014</span>
+                </div>
+
+                <a href="producto.html?sku=MI-014" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros Mod. Bazar Pro v2">Cable Trenzado de Alta Resistencia USB-C a USB-C 2 Metros Mod. Bazar Pro v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Soporta transferencia de datos y carga de 60W.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$200.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $150.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-014', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-014')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-015" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/353434-2.webp" 
+                        alt="Soporte Magnético para Celular en Rejilla de Automóvil Mod. Maxell v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -28% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Maxell</span>
+                    <span class="text-slate-400 font-bold">MI-015</span>
+                </div>
+
+                <a href="producto.html?sku=MI-015" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Soporte Magnético para Celular en Rejilla de Automóvil Mod. Maxell v2">Soporte Magnético para Celular en Rejilla de Automóvil Mod. Maxell v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Imanes de neodimio de alta potencia anti-vibración.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$180.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $130.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-015', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-015')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-016" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/354837-1.webp" 
+                        alt="Lámpara LED de Escritorio Recargable con 3 Tonos de Luz Mod. Kingston v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Kingston</span>
+                    <span class="text-slate-400 font-bold">MI-016</span>
+                </div>
+
+                <a href="producto.html?sku=MI-016" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Lámpara LED de Escritorio Recargable con 3 Tonos de Luz Mod. Kingston v2">Lámpara LED de Escritorio Recargable con 3 Tonos de Luz Mod. Kingston v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Control táctil y cuello flexible de 360 grados.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$360.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $270.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-016', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-016')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-017" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/354837-2.webp" 
+                        alt="Juego de Desarmadores de Precisión 24 en 1 para Celulares Mod. Steren Style v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Steren Style</span>
+                    <span class="text-slate-400 font-bold">MI-017</span>
+                </div>
+
+                <a href="producto.html?sku=MI-017" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Juego de Desarmadores de Precisión 24 en 1 para Celulares Mod. Steren Style v2">Juego de Desarmadores de Precisión 24 en 1 para Celulares Mod. Steren Style v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Puntas de acero templado magnéticas para electrónica.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$320.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $240.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-017', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-017')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-018" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/354837-3.webp" 
+                        alt="Gorra Urbana Bordada con Broche Ajustable Mod. Baseus v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -25% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Baseus</span>
+                    <span class="text-slate-400 font-bold">MI-018</span>
+                </div>
+
+                <a href="producto.html?sku=MI-018" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Gorra Urbana Bordada con Broche Ajustable Mod. Baseus v2">Gorra Urbana Bordada con Broche Ajustable Mod. Baseus v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Visera curva y tela de algodón transpirable.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$360.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $270.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-018', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-018')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-019" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/354844-1.webp" 
+                        alt="Paquete de 3 Pares de Calcetines Deportivos Reforzados Mod. Hoco v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -28% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">Hoco</span>
+                    <span class="text-slate-400 font-bold">MI-019</span>
+                </div>
+
+                <a href="producto.html?sku=MI-019" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Paquete de 3 Pares de Calcetines Deportivos Reforzados Mod. Hoco v2">Paquete de 3 Pares de Calcetines Deportivos Reforzados Mod. Hoco v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Amortiguación en talón y soporte en arco.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$180.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $130.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-019', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-019')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(6,182,212,0.2)] border border-slate-800/80 min-w-[230px] max-w-[250px] sm:min-w-0 sm:max-w-none snap-start shrink-0 sm:shrink">
+            <div>
+                <a href="producto.html?sku=MI-020" class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2 shadow-inner group-hover:scale-[1.02] transition">
+                    <img 
+                        src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/gallery/354844-2.webp" 
+                        alt="Consola Portátil Retro con 400 Juegos Clásicos Mod. JBL Tribute v2" 
+                        width="180" 
+                        height="180" 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null; this.src='assets/img/mascota_tigre_thumb.webp';"
+                    />
+                    <span class="absolute top-1.5 left-1.5 bg-red-600 text-white text-[8px] font-mono font-black px-1.5 py-0.5 rounded shadow uppercase tracking-wider">
+                        -26% Ahorro
+                    </span>
+                </a>
+
+                <div class="flex justify-between items-center text-[8px] font-mono mb-1">
+                    <span class="text-cyan-400 font-bold uppercase truncate">JBL Tribute</span>
+                    <span class="text-slate-400 font-bold">MI-020</span>
+                </div>
+
+                <a href="producto.html?sku=MI-020" class="block">
+                    <h4 class="text-white font-bold text-[11px] mb-1 line-clamp-2 leading-snug group-hover:text-cyan-300 transition" title="Consola Portátil Retro con 400 Juegos Clásicos Mod. JBL Tribute v2">Consola Portátil Retro con 400 Juegos Clásicos Mod. JBL Tribute v2</h4>
+                </a>
+                <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-2 mb-2 font-normal">Pantalla a color de 3 pulgadas y salida AV para TV.</p>
+            </div>
+
+            <div>
+                <div class="pt-2 border-t border-slate-900 mb-2 flex flex-col gap-0.5">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="text-slate-400 font-bold uppercase text-[8px]">Antes:</span>
+                        <span class="text-red-400 font-bold line-through bg-red-950/50 border border-red-500/40 px-1 py-0.2 rounded">$580.00</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[9px] font-mono text-emerald-400 font-bold uppercase">Oferta:</span>
+                        <span class="text-sm sm:text-base font-black font-mono text-amber-400">
+                            $430.00 <span class="text-[9px] text-amber-300/80 font-normal">MXN</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1">
+                    <button onclick="addToCartDirect('MI-020', 1)" aria-label="Agregar al carrito" class="bg-slate-900 hover:bg-slate-800 text-cyan-300 font-bold py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 cursor-pointer shadow border border-cyan-500/30" title="Agregar a canasta">
+                        <i class="fa-solid fa-cart-plus text-[9px]"></i> <span class="truncate">Carrito</span>
+                    </button>
+                    <button onclick="buyNowDirect('MI-020')" aria-label="Comprar ahora" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-1.5 px-1 rounded-xl text-[9px] flex items-center justify-center gap-1 transition active:scale-95 shadow cursor-pointer" title="Comprar ahora">
+                        <i class="fa-solid fa-bolt text-[9px]"></i> <span class="truncate">Comprar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+                </div>
+
+                <!-- BARRA DE PAGINACIÓN: 10 PÁGINAS DE 20 PRODUCTOS (200 TOTAL) -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800" id="pagination-container">
+                    <button onclick="changePage(currentPage - 1)" id="btn-prev-page" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-bold transition active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i> Anterior
+                    </button>
+
+                    <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-1" id="pagination-pages-list">
+                    </div>
+
+                    <button onclick="changePage(currentPage + 1)" id="btn-next-page" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-bold transition active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+                        Siguiente <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
+                </div>
+            
+                <!-- BANNER DE CONVERSIÓN: CÓDIGO QR APP + DESCARGAS GOOGLE GEMINI & ANTI-GRAVITY (ABAJO DE PRODUCTOS) -->
+                <div class="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    <!-- 1. Código QR App Oficial -->
+                    <div class="p-5 bg-slate-950 border-2 border-cyan-400 rounded-3xl shadow-[0_0_25px_rgba(6,182,212,0.25)] text-center flex flex-col justify-between items-center gap-3">
+                        <div class="flex items-center gap-2 text-white font-mono font-black text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-mobile-screen text-cyan-400 text-lg"></i>
+                            <span>App Móvil Pedidos Rápidos</span>
+                        </div>
+                        <div class="w-36 h-36 bg-white p-2 rounded-2xl shadow-xl flex items-center justify-center aspect-square shrink-0">
+                            <img src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/img/codigo_qr_bazar_nfl.png" alt="Código QR App BAZAR NFL" width="144" height="144" loading="lazy" decoding="async" class="w-full h-full object-contain rounded-lg" onerror="this.onerror=null;this.src='https://quickchart.io/qr?text=https%3A//iaworldcenter-creator.github.io/sitios-web/app.html&size=300';" />
+                        </div>
+                        <p class="text-[11px] text-slate-300">Escanea con tu cámara para pedir por Uber Flash con código PIN.</p>
+                        <a href="https://iaworldcenter-creator.github.io/sitios-web/app.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-emerald-400 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+                            <i class="fa-brands fa-google-play text-emerald-400"></i> <span>Abrir App Oficial</span>
+                        </a>
+                    </div>
+
+                    <!-- 2. Tarjeta Google Gemini AI -->
+                    <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-cyan-500/40 rounded-3xl p-5 flex flex-col justify-between gap-3 shadow-xl">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-cyan-300 font-mono font-bold text-xs uppercase">
+                                <i class="fa-solid fa-wand-magic-sparkles text-cyan-400 text-base"></i>
+                                <span>Creado con Google Gemini</span>
+                            </div>
+                            <h3 class="text-white font-black text-sm">Inteligencia Artificial para tu Negocio</h3>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">Concebido y programado con la IA más avanzada de Google para crear tiendas de ultra velocidad.</p>
+                        </div>
+                        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black py-2.5 rounded-xl text-xs text-center uppercase tracking-wider transition active:scale-95 shadow">
+                            Suscribirse a Google Gemini
+                        </a>
+                    </div>
+
+                    <!-- 3. Tarjeta Anti-Gravity Copilot -->
+                    <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-amber-500/40 rounded-3xl p-5 flex flex-col justify-between gap-3 shadow-xl">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-amber-300 font-mono font-bold text-xs uppercase">
+                                <i class="fa-solid fa-robot text-amber-400 text-base"></i>
+                                <span>Desarrollado por Anti-Gravity</span>
+                            </div>
+                            <h3 class="text-white font-black text-sm">Agente Autónomo de Ingeniería de Software</h3>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">Desarrollado, optimizado y desplegado por Anti-Gravity Copilot. Crea tus propias páginas gratis.</p>
+                        </div>
+                        <a href="https://antigravity.google/download" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 text-slate-950 font-black py-2.5 rounded-xl text-xs text-center uppercase tracking-wider transition active:scale-95 shadow">
+                            Descargar Anti-Gravity Gratis
+                        </a>
+                    </div>
+
                 </div>
 
             </section>
+
         </div>
-
-        <!-- BANNER INFERIOR DE CONVERSIÓN: CÓDIGO QR APP + DESCARGAS GOOGLE GEMINI & ANTI-GRAVITY (ANCHO COMPLETO AL FINAL) -->
-        <div class="mt-10 pt-8 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <!-- 1. Código QR App Oficial -->
-            <div class="p-5 bg-slate-950 border-2 border-cyan-400 rounded-3xl shadow-[0_0_25px_rgba(6,182,212,0.25)] text-center flex flex-col justify-between items-center gap-3">
-                <div class="flex items-center gap-2 text-white font-mono font-black text-xs uppercase tracking-wider">
-                    <i class="fa-solid fa-mobile-screen text-cyan-400 text-lg"></i>
-                    <span>App Móvil Pedidos Rápidos</span>
-                </div>
-                <div class="w-36 h-36 bg-white p-2 rounded-2xl shadow-xl flex items-center justify-center aspect-square shrink-0">
-                    <img src="https://iaworldcenter-creator.github.io/pc-custom-lab/assets/img/codigo_qr_bazar_nfl.png" alt="Código QR App BAZAR NFL" width="144" height="144" loading="lazy" decoding="async" class="w-full h-full object-contain rounded-lg" onerror="this.onerror=null;this.src='https://quickchart.io/qr?text=https%3A//iaworldcenter-creator.github.io/sitios-web/app.html&size=300';" />
-                </div>
-                <p class="text-[11px] text-slate-300">Escanea con tu cámara para pedir por Uber Flash con código PIN.</p>
-                <a href="https://iaworldcenter-creator.github.io/sitios-web/app.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-emerald-400 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-google-play text-emerald-400"></i> <span>Abrir App Oficial</span>
-                </a>
-            </div>
-
-            <!-- 2. Tarjeta Google Gemini AI -->
-            <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-cyan-500/40 rounded-3xl p-5 flex flex-col justify-between gap-3 shadow-xl">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2 text-cyan-300 font-mono font-bold text-xs uppercase">
-                        <i class="fa-solid fa-wand-magic-sparkles text-cyan-400 text-base"></i>
-                        <span>Creado con Google Gemini</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm">Inteligencia Artificial para tu Negocio</h4>
-                    <p class="text-slate-300 text-xs leading-relaxed">Concebido y programado con la IA más avanzada de Google para crear tiendas de ultra velocidad.</p>
-                </div>
-                <a href="https://gemini.google.com" target="_blank" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-white font-bold py-2 rounded-xl text-xs text-center flex items-center justify-center gap-2 transition">
-                    <i class="fa-solid fa-robot"></i> <span>Suscribir a Google Gemini</span>
-                </a>
-            </div>
-
-            <!-- 3. Tarjeta Anti-Gravity -->
-            <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-amber-500/40 rounded-3xl p-5 flex flex-col justify-between gap-3 shadow-xl">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2 text-amber-300 font-mono font-bold text-xs uppercase">
-                        <i class="fa-solid fa-laptop-code text-amber-400 text-base"></i>
-                        <span>Desarrollado por Anti-Gravity</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm">Agente Autónomo de Ingeniería de Software</h4>
-                    <p class="text-slate-300 text-xs leading-relaxed">Desarrollado, optimizado y desplegado por Anti-Gravity Copilot. Crea tus propias páginas gratis.</p>
-                </div>
-                <a href="https://github.com" target="_blank" class="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 text-slate-950 font-black py-2 rounded-xl text-xs text-center flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-github"></i> <span>Descarga Anti-Gravity Gratis</span>
-                </a>
-            </div>
-        </div>
-
     </main>
 
     <!-- MODAL FLOTANTE: MI CUENTA / DOMICILIO & CASHBACK -->
@@ -1001,6 +2130,5 @@ window.boutiqueProducts = [{'sku': 'PST-001', 'nombre': 'Lentes de Sol con Bocin
     });
     </script>
     <script defer src="js/ux-engine.js"></script>
-    <script defer src="js/ecosystem-catalog-engine.js"></script>
 </body>
 </html>
