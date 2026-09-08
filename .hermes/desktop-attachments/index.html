@@ -180,8 +180,8 @@
         const promptDiv = document.getElementById("header-delivery-prompt");
         if (!promptDiv) return;
         const stored = localStorage.getItem("user_delivery_address");
-        // Check if we are inside pc-custom-lab (uses relative path for checkout)
-        const isPcCustomLab = window.location.pathname.includes("pc-custom-lab");
+        // Check if we are inside VECTEC (uses relative path for checkout)
+        const isPcCustomLab = window.location.pathname.includes("VECTEC");
         const checkoutUrl = isPcCustomLab ? "../mi-puesto-bazar/checkout.html" : "checkout.html";
         
         if (stored) {
@@ -390,7 +390,7 @@ if ('serviceWorker' in navigator) {
                         <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('revistas')">📖 Revistas y Periódicos</li>
                         <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('dulces')">🍬 Dulcería y Botanas</li>
                         <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('cigarros')">🚬 Cigarros y Accesorios</li>
-                        <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('gadgets')">🔌 PC Custom Lab (Gadgets)</li>
+                        <li class="cursor-pointer hover:text-blue-600" onclick="filterByDept('gadgets')">🔌 VECTEC (Gadgets)</li>
                     </ul>
                 </div>
 
@@ -575,7 +575,7 @@ if ('serviceWorker' in navigator) {
         },
         {
                 "sku": "COMP-002",
-                "nombre": "Computadora de Escritorio PC Custom Lab Intel i5 / 16GB RAM / 500GB SSD",
+                "nombre": "Computadora de Escritorio VECTEC Intel i5 / 16GB RAM / 500GB SSD",
                 "imagen": "assets/img/portadas/tech_cover.webp",
                 "precio": "8500",
                 "frecuencia": "Inmediato",
@@ -591,7 +591,7 @@ if ('serviceWorker' in navigator) {
         },
         {
                 "sku": "COMP-001",
-                "nombre": "Computadora Gamer PC Custom Lab Ryzen 7 / RTX 4070 / 32GB RAM / 1TB SSD",
+                "nombre": "Computadora Gamer VECTEC Ryzen 7 / RTX 4070 / 32GB RAM / 1TB SSD",
                 "imagen": "assets/img/portadas/tech_cover.webp",
                 "precio": "28500",
                 "frecuencia": "Inmediato",
@@ -1390,7 +1390,7 @@ if ('serviceWorker' in navigator) {
                         <a href="https://www.youtube.com/@vectec.oficial" target="_blank" rel="noopener noreferrer" aria-label="Canal oficial de YouTube" class="text-slate-300 hover:text-red-400 flex items-center gap-2 transition min-h-[44px]">
               <i class="fa-brands fa-youtube text-red-500 w-4 text-center" aria-hidden="true"></i> <span>YouTube: <strong>@vectec.oficial</strong></span>
             </a>
-                        <a href="https://t.me/pc_custom_lab" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition flex items-center gap-2.5 group">
+                        <a href="https://t.me/vectec_gdl" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition flex items-center gap-2.5 group">
                             <i class="fa-brands fa-telegram text-cyan-400 w-4 text-center group-hover:scale-110 transition"></i>
                             <span>Telegram: <strong class="text-slate-300 group-hover:text-cyan-400">pc_custom_lab</strong></span>
                         </a>
