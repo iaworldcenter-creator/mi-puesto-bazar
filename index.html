@@ -748,6 +748,46 @@
       if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    
+    window.filterByDepartment = function(deptId, deptName) {
+      const deptMapping = {
+        "procesadores": ["procesador", "cpu", "ryzen", "core i", "intel"],
+        "tarjetas_video": ["tarjeta de video", "gpu", "rtx", "radeon"],
+        "tarjetas_madre": ["motherboard", "tarjeta madre"],
+        "memorias_ram": ["ram", "ddr4", "ddr5", "memoria"],
+        "almacenamiento": ["usb", "pendrive", "disco", "ssd", "microsd", "almacenamiento", "memorias_usb_pendrives"],
+        "laptops_pcs": ["laptop", "pc", "computadora"],
+        "monitores": ["monitor", "pantalla"],
+        "perifericos": ["teclado", "mouse", "diadema", "headset", "bocina", "auricular", "sonido", "bocinas_sonido", "diademas_headsets", "teclados"],
+        "redes": ["cable", "adaptador", "cables_adaptadores", "red"],
+        "gabinetes_fuentes": ["cargador", "bateria", "powerbank", "cargadores_baterias_powerbanks"]
+      };
+
+      const terms = deptMapping[deptId] || [deptId];
+      // Filtrar sobre el catálogo base local de 200 productos
+      const baseCatalog = (typeof defaultAparador200 !== 'undefined') ? defaultAparador200 : techMasterProducts;
+      let matched = [];
+      if (baseCatalog && baseCatalog.length > 0) {
+        matched = baseCatalog.filter(p => {
+          const blob = ((p.nombre || p.n || '') + ' ' + (p.categoria || p.c || '') + ' ' + (p.sku || '')).toLowerCase();
+          return terms.some(t => blob.includes(t.toLowerCase()));
+        });
+      }
+
+      if (matched.length > 0) {
+        techOutletProducts = matched;
+        currentTechFilter = 'outlet';
+      } else {
+        techOutletProducts = (typeof defaultAparador200 !== 'undefined') ? [...defaultAparador200] : [...techMasterProducts];
+        currentTechFilter = 'outlet';
+      }
+
+      currentTechPage = 1;
+      renderTechProductsGrid();
+      const targetEl = document.getElementById("seccion-pasillo-vectec") || document.getElementById("tech-products-grid");
+      if (targetEl) targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
     function filterTechCategory(cat) {
       currentTechFilter = cat;
       currentTechPage = 1;
