@@ -499,14 +499,18 @@
 
         if (resLocal && resLocal.ok) {
           localProducts = await resLocal.json();
+          window.localProducts = localProducts;
         }
         if (resAparador && resAparador.ok) {
           techOutletProducts = await resAparador.json();
+          window.techOutletProducts = techOutletProducts;
         } else if (typeof defaultAparador200 !== 'undefined') {
           techOutletProducts = defaultAparador200;
+          window.techOutletProducts = techOutletProducts;
         }
         if (resMaster && resMaster.ok) {
           techMasterProducts = await resMaster.json();
+          window.techMasterProducts = techMasterProducts;
         }
       } catch(e) {
         console.error("Error al cargar catálogos en mi-puesto-bazar:", e);
@@ -539,7 +543,7 @@
         const discountPct = p.precio_original > p.precio ? Math.round(((p.precio_original - p.precio) / p.precio_original) * 100) : 0;
         return `
           <div class="bg-slate-950/90 hover:bg-slate-950 rounded-2xl p-3.5 flex flex-col justify-between transition group shadow-xl hover:shadow-[0_8px_30px_rgba(16,185,129,0.2)] border border-slate-800 hover:border-emerald-500/50">
-            <div>
+            <div onclick="openProductDetailModal('${p.sku}')" class="cursor-pointer">
               <div class="block w-full h-32 sm:h-36 overflow-hidden rounded-xl bg-slate-900 flex items-center justify-center p-2 relative mb-2.5 shadow-inner">
                 <img 
                   src="${p.imagen}" 
